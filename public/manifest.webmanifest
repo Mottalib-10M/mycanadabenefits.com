@@ -1,6 +1,6 @@
 {
- "name": "BenefitLedger",
- "short_name": "BenefitLedger",
+ "name": "My Canada Benefits",
+ "short_name": "My Canada Benefits",
  "description": "Canadian benefits 2026 in one calculation: CCB, Groceries and Essentials Benefit, CWB, CPP, OAS, GIS and provincial programs, with every payment date.",
  "start_url": "/en/",
  "display": "standalone",

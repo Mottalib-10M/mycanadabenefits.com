@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /*?*
 
-Sitemap: https://ca-prestations.example/sitemap-index.xml
+Sitemap: https://mycanadabenefits.com/sitemap-index.xml

@@ -13,7 +13,7 @@ const fr = lang === 'fr';
 const $ = (n: number, d = 0) => formatMoney(n, d, lang);
 const pc = (x: number, d = 1) => formatPercent(x, d, lang);
 const dt = (iso: string) => displayDate(iso, LANG_TAGS[lang]);
-const title = fr ? 'Méthode de calcul BenefitLedger 2026 : formules et sources' : 'BenefitLedger Calculation Method 2026: Formulas and Sources';
+const title = fr ? 'Méthode de calcul des prestations 2026 : formules et sources' : 'Benefit calculation method in Canada 2026: formulas, sources';
 const description = fr ? 'Méthode 2026 : formules de l’ACE, de l’ACEBE, de l’ACT, de la SV, du SRG et des provinces, montants datés, tests rejoués et limites de chaque estimation.' : 'Method for 2026: formulas behind the CCB, CGEB, CWB, OAS, GIS and provincial programs, dated amounts, tests replayed at each release, limits of each estimate.';
 const h1 = fr ? 'Méthode de calcul et sources' : 'Calculation method and sources';
 const path = route('method', lang);

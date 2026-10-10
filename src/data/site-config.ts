@@ -1,6 +1,6 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://ca-prestations.example";
-export const SITE_NAMES: Record<string, string> = {"en": "BenefitLedger", "fr": "BenefitLedger"};
+export const SITE_URL = "https://mycanadabenefits.com";
+export const SITE_NAMES: Record<string, string> = {"en": "My Canada Benefits", "fr": "My Canada Benefits"};
 export const LANG_TAGS: Record<string, string> = {"en": "en-CA", "fr": "fr-CA"};
 export const OG_LOCALES: Record<string, string> = {"en": "en_CA", "fr": "fr_CA"};
 /** Une locale par langue (RECETTE §4) : « $1,234 » en anglais, « 1 234 $ » en français. */
@@ -18,7 +18,7 @@ export const AUTHOR_DESC: Record<string, string> = {"en": "Radif Partners mainta
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"en": ["Canada child benefit", "Canada Groceries and Essentials Benefit (former GST/HST credit)", "Canada workers benefit", "Canada Pension Plan", "Old Age Security and the Guaranteed Income Supplement", "Provincial benefits administered by the CRA"], "fr": ["Allocation canadienne pour enfants", "Allocation canadienne pour l'épicerie et les besoins essentiels (ex-crédit pour la TPS/TVH)", "Allocation canadienne pour les travailleurs", "Régime de pensions du Canada", "Pension de la Sécurité de la vieillesse et Supplément de revenu garanti", "Prestations provinciales administrées par l'ARC"]};
-export const CONTACT_EMAIL = "contact@ca-prestations.example";
+export const CONTACT_EMAIL = "contact@mycanadabenefits.com";
 export const THEME_COLOR = '#B8141F';
 export const LOGO_SYMBOL = '+$';
 export const BING_VERIFY_CODE = '';
@@ -29,7 +29,7 @@ export const GOOGLE_VERIFY_CODE = '';
 export const CONSENT_MODE: 'opt-in' | 'notice' | 'none' = 'none';
 export const GA4_ID = '';
 /** Projet Microsoft Clarity (compte amradif), chargé sans cookie. Vide = aucune mesure. */
-export const CLARITY_ID = '';
+export const CLARITY_ID = 'yvjpnlmw9g';
 export const INDEXNOW_KEY = '7f3c2a9e5b1d4e8fa06c3b2d9e7a1f45';
 
 /* ------------------------------------------------------------------------- *

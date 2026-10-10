@@ -1,9 +1,9 @@
-# Ajouter ou écrire une page de BenefitLedger (ca-prestations)
+# Ajouter ou écrire une page de My Canada Benefits (ca-prestations)
 
 Notice pour les agents qui écrivent des pages. À lire en entier avant d'écrire une ligne, avec
 `~/Documents/GitHub/RECETTE-SITE.md` §6 (unicité), §7 (FAQ), §9 (écriture), §9.3 (mini-simulateurs), §11 (titres),
-§21 (bloc citable), §26 (texte replié). Nom provisoire du site : **BenefitLedger** (domaine non choisi, URL
-provisoire `https://ca-prestations.example`).
+§21 (bloc citable), §26 (texte replié). Nom provisoire du site : **My Canada Benefits** (domaine non choisi, URL
+provisoire `https://mycanadabenefits.com`).
 
 Site : prestations et pensions fédérales et provinciales du Canada, montants 2026, **en anglais (`/en/`, langue
 par défaut) et en français (`/fr/`)**. Éditeur : Radif Partners (jamais de nom de personne). Aucun lien vers un
