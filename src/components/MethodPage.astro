@@ -1,0 +1,104 @@
+---
+/** Méthode et sources (page de confiance, RECETTE §8.2) : formules, montants datés, tests, limites. */
+import PageLayout from '../layouts/PageLayout.astro';
+import { route, type Locale } from '../i18n/routes';
+import { P } from '../lib/engine/params';
+import * as M from '../lib/engine/index';
+import { formatMoney, formatPercent, displayDate } from '../lib/format';
+import { breadcrumbSchema, webPageSchema } from '../lib/seo';
+import { LAST_UPDATED, CONTACT_EMAIL, REVIEW_CYCLE_MONTHS, LANG_TAGS } from '../data/site-config';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const fr = lang === 'fr';
+const $ = (n: number, d = 0) => formatMoney(n, d, lang);
+const pc = (x: number, d = 1) => formatPercent(x, d, lang);
+const dt = (iso: string) => displayDate(iso, LANG_TAGS[lang]);
+const title = fr ? 'Méthode de calcul BenefitLedger 2026 : formules et sources' : 'BenefitLedger Calculation Method 2026: Formulas and Sources';
+const description = fr ? 'Méthode 2026 : formules de l’ACE, de l’ACEBE, de l’ACT, de la SV, du SRG et des provinces, montants datés, tests rejoués et limites de chaque estimation.' : 'Method for 2026: formulas behind the CCB, CGEB, CWB, OAS, GIS and provincial programs, dated amounts, tests replayed at each release, limits of each estimate.';
+const h1 = fr ? 'Méthode de calcul et sources' : 'Calculation method and sources';
+const path = route('method', lang);
+const sources = Object.values(P.sources);
+const exCcb = M.ccb({ under6: 1, age6to17: 1, afni: 60000 });
+const exGis = M.gis('single', 10000);
+const C = P.ccb, G = P.cgeb, W = P.cwb;
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: h1, description, path, lang }), breadcrumbSchema([{ name: fr ? 'Accueil' : 'Home', path: route('home', lang) }, { name: h1, path }])]} breadcrumbs={[{ label: h1 }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{h1}</h1></header>
+  {fr ? (
+  <div class="prose prose-slate max-w-none">
+    <p>Tous les montants du site sortent d’un seul fichier de paramètres, relevé le <time datetime={P.retrieved_at}>{dt(P.retrieved_at)}</time> sur les pages officielles listées en bas de page, chacune avec sa date de modification. Les calculateurs et les textes lisent ce fichier : aucun montant n’est tapé à la main dans une page, et une valeur corrigée change partout à la fois.</p>
+    <h2>Trois calendriers de mise à jour</h2>
+    <p>Les prestations de l’ARC (allocation canadienne pour enfants, allocation pour l’épicerie, programmes provinciaux) suivent une année de juillet à juin calculée sur la déclaration de l’année précédente : le site applique juillet 2026 à juin 2027, sur les revenus de 2025. Le RPC est indexé chaque 1er janvier ({pc(P.cpp.indexation)} en 2026). La SV, le SRG et l’Allocation sont révisés chaque trimestre : le site applique le trimestre d’octobre à décembre 2026 publié par EDSC. L’allocation pour les travailleurs suit l’année d’imposition 2026.</p>
+    <h2>Allocation canadienne pour enfants</h2>
+    <p>Maximum de {$(C.max_under6)} par enfant de moins de 6 ans et de {$(C.max_6_17)} de 6 à 17 ans. Sous {$(C.t1)} de revenu familial net rajusté, aucune réduction. De {$(C.t1)} à {$(C.t2)}, réduction de {pc(C.r1[0])}, {pc(C.r1[1])}, {pc(C.r1[2])} ou {pc(C.r1[3])} de l’excédent pour 1, 2, 3, 4 enfants ou plus. Au-delà de {$(C.t2)}, montant fixe ({$(C.base2[0])}, {$(C.base2[1])}, {$(C.base2[2])}, {$(C.base2[3])}) plus {pc(C.r2[0])}, {pc(C.r2[1])}, {pc(C.r2[2])} ou {pc(C.r2[3])}. Prestation pour enfants handicapés : {$(C.cdb.max)} par enfant, réduite de {pc(C.cdb.r[0])} (un enfant) ou {pc(C.cdb.r[1])} (deux et plus) au-delà de {$(C.cdb.threshold)}. Exemple : deux enfants, dont un de moins de 6 ans, 60 000 $ de revenu : {$(exCcb.annual)} par an.</p>
+    <h2>Allocation canadienne pour l’épicerie et les besoins essentiels (ex-crédit TPS/TVH)</h2>
+    <p>{$(G.individual)} pour le demandeur, {$(G.spouse)} pour le conjoint ou le premier enfant d’une famille monoparentale, {$(G.child)} par autre enfant de moins de 19 ans. Supplément pour personne seule de {$(G.single_supp)} au plus : {pc(G.supp_rate, 0)} du revenu au-delà de {$(G.supp_start)} pour une personne sans enfant, entier pour un parent seul. Le total est réduit de {pc(G.rate, 0)} du revenu familial net rajusté au-delà de {$(G.threshold)}. Le moteur retrouve au cent près les lignes du tableau de versements de l’ARC.</p>
+    <h2>Allocation canadienne pour les travailleurs</h2>
+    <p>{pc(W.phase_in, 0)} du revenu de travail au-delà de {$(W.min_work)}, plafonnés à {$(W.max_single)} (personne seule) ou {$(W.max_family)} (famille), moins {pc(W.rate, 0)} du revenu net rajusté au-delà de {$(W.thr_single)} ou {$(W.thr_family)}. Pour un couple, le plus faible des deux revenus de travail est exempté jusqu’à {$(W.secondary_exempt)}. Supplément pour invalidité : {pc(W.phase_in, 0)} du revenu de travail de la personne au-delà de {$(W.dis_min_work)}, plafonné à {$(W.dis_max)}, réduit de {pc(W.dis_rate, 0)} (ou {pc(W.dis_rate_both, 1)} si les deux conjoints y ont droit) au-delà de {$(W.dis_thr_single)} ou {$(W.dis_thr_family)}. Le Québec, l’Alberta et le Nunavut appliquent leurs propres paramètres, que le site ne modélise pas.</p>
+    <h2>RPC, SV et récupération</h2>
+    <p>Pension du RPC : montant à 65 ans de votre relevé, plafonné à {$(P.cpp.max_65, 2)}, diminué de {pc(P.cpp.early)} par mois avant 65 ans ou augmenté de {pc(P.cpp.late)} par mois après, jusqu’à 70 ans. SV : {$(P.oas.max_65_74, 2)} par mois de 65 à 74 ans et {$(P.oas.max_75, 2)} à 75 ans et plus, multipliés par les années de résidence après 18 ans divisées par 40, et majorés de {pc(P.oas.defer)} par mois de report (au plus {pc(P.oas.defer_max, 0)}). Impôt de récupération : {pc(P.oas.recovery.rate, 0)} du revenu net au-delà de {$(P.oas.recovery.thr_2025)} (revenu 2025), au plus la pension elle-même. Service Canada publie un seuil d’annulation de {$(P.oas.recovery.zero_2025[0])} calculé sur une pension annuelle de référence ; avec le montant d’octobre à décembre 2026, une trentaine de dollars restent à ce revenu.</p>
+    <h2>Supplément de revenu garanti et Allocation : un modèle calé</h2>
+    <p>Canada.ca publie, chaque trimestre, le maximum et le seuil de revenu de chaque situation, ainsi que le seuil où le complément (« top-up ») s’éteint, mais pas le barème complet. Le moteur reconstruit le calcul de la Loi sur la sécurité de la vieillesse : partie de base réduite de 1 $ par 2 $ de revenu mensuel (personne seule) ou de 1 $ par 4 $ de revenu mensuel combiné (couple), complément réduit au-delà de 2 000 $ (4 000 $ pour un couple), puis recale chaque partie pour retomber exactement sur le maximum, le seuil du complément et le seuil de revenu publiés. L’Allocation ajoute une partie équivalente à la SV, réduite de 3 $ par 4 $ de revenu mensuel. Le revenu d’emploi est exempté jusqu’à {$(P.gis.work_exempt_full)}, puis à moitié jusqu’à {$(P.gis.work_exempt_half_to)}. Entre deux seuils, l’écart avec la grille officielle peut atteindre environ un dollar par mois, à cause de l’arrondi des tranches de revenu. Exemple : personne seule, 10 000 $ de revenu hors SV : {$(exGis.monthly, 2)} par mois.</p>
+    <h2>Programmes provinciaux</h2>
+    <p>Calculés en entier quand la règle est publiée : prestation Trillium de l’Ontario (crédit pour l’énergie et les impôts fonciers, crédit de taxe de vente, crédit pour le Nord), allocation familiale de la Colombie-Britannique, crédit pour la TVH du Nouveau-Brunswick, crédit pour la vie abordable de la Nouvelle-Écosse. Quand la province ne publie que le maximum et le seuil (Prestation ontarienne pour enfants, Allocation famille du Québec, allocation pour enfants et familles de l’Alberta, crédit de la Saskatchewan, prestations pour enfants de l’Atlantique et des territoires), le site affiche le maximum, le signale d’un astérisque et ne l’additionne pas.</p>
+    <h2>Les tests qui bloquent la mise en ligne</h2>
+    <ul>
+      <li>Allocation pour l’épicerie : dix-sept lignes du tableau de versements de l’ARC (personne seule, couple, parent seul, couple avec deux enfants), au cent près.</li>
+      <li>Allocation pour enfants : les montants fixes de la seconde tranche retrouvés à 1 $ près, la prestation pour enfants handicapés et le versement unique sous {$(C.lump_sum_under)}.</li>
+      <li>Allocation pour les travailleurs : revenus d’annulation publiés ({$(W.zero_single)} et {$(W.zero_family)}), exemption du deuxième revenu, supplément plafonné.</li>
+      <li>SV reportée à 70 ans : {$(P.oas.defer_70_example, 2)} par mois, l’exemple de Service Canada ; SRG et Allocation exacts au maximum et à chaque seuil publié.</li>
+      <li>Cotisations RPC 2026 maximales ({$(P.cpp.max_contrib, 2)} et {$(P.cpp.cpp2_max)} pour le RPC2) et facteurs FERR de l’article 7308.</li>
+      <li>Chaque mini-calculateur, dans les deux langues, sans valeur manquante.</li>
+    </ul>
+    <h2>Ce que le site ne fait pas</h2>
+    <ul>
+      <li>Il ne remplace ni l’avis de prestations de l’ARC ni la décision de Service Canada, qui connaissent votre dossier complet (garde partagée, changement d’état civil, déclaration tardive).</li>
+      <li>Il ne traite ni l’assurance-emploi, ni l’aide sociale provinciale, ni les prestations des anciens combattants.</li>
+      <li>Le calculateur de l’accueil suppose une SV complète et compte le RPC dans le revenu saisi.</li>
+    </ul>
+    <h2>Mises à jour</h2>
+    <p>Revue en juillet, à chaque trimestre de la SV, en janvier pour le RPC, et au moins tous les {REVIEW_CYCLE_MONTHS} mois. Une erreur signalée à <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> est vérifiée sur la source, corrigée puis transformée en test. Voir la <a href={route('editorial', lang)}>politique éditoriale</a>.</p>
+    <h2>Toutes les sources</h2>
+    <ul>{sources.map((s) => <li><a href={s.url_fr} rel="nofollow noopener" target="_blank">{s.label.fr}</a></li>)}</ul>
+    <p class="text-sm text-navy-600">Dernière vérification : <time datetime={LAST_UPDATED}>{dt(LAST_UPDATED)}</time>.</p>
+  </div>
+  ) : (
+  <div class="prose prose-slate max-w-none">
+    <p>Every amount on this site comes from one parameter file, read on <time datetime={P.retrieved_at}>{dt(P.retrieved_at)}</time> from the official pages listed at the bottom, each with its own modification date. Calculators and text read that file: no amount is typed into a page by hand, and a corrected value changes everywhere at once.</p>
+    <h2>Three update clocks</h2>
+    <p>CRA benefits (Canada child benefit, Groceries and Essentials Benefit, provincial programs) run on a July-to-June year calculated from the previous year’s return: the site applies July 2026 to June 2027, on 2025 income. CPP is indexed every January 1 ({pc(P.cpp.indexation)} in 2026). OAS, GIS and the Allowance are reviewed every quarter: the site applies the October to December 2026 quarter published by ESDC. The workers benefit follows the 2026 tax year.</p>
+    <h2>Canada child benefit</h2>
+    <p>Maximum of {$(C.max_under6)} per child under 6 and {$(C.max_6_17)} from 6 to 17. Below {$(C.t1)} of adjusted family net income, no reduction. From {$(C.t1)} to {$(C.t2)}, a reduction of {pc(C.r1[0])}, {pc(C.r1[1])}, {pc(C.r1[2])} or {pc(C.r1[3])} of the excess for 1, 2, 3, or 4 and more children. Above {$(C.t2)}, a fixed amount ({$(C.base2[0])}, {$(C.base2[1])}, {$(C.base2[2])}, {$(C.base2[3])}) plus {pc(C.r2[0])}, {pc(C.r2[1])}, {pc(C.r2[2])} or {pc(C.r2[3])}. Child disability benefit: {$(C.cdb.max)} per child, reduced by {pc(C.cdb.r[0])} (one child) or {pc(C.cdb.r[1])} (two or more) above {$(C.cdb.threshold)}. Example: two children, one under 6, $60,000 of income: {$(exCcb.annual)} a year.</p>
+    <h2>Canada Groceries and Essentials Benefit (former GST/HST credit)</h2>
+    <p>{$(G.individual)} for the applicant, {$(G.spouse)} for a spouse or the first child of a single parent, {$(G.child)} for each other child under 19. Single supplement of up to {$(G.single_supp)}: {pc(G.supp_rate, 0)} of income above {$(G.supp_start)} for a single person with no children, in full for a single parent. The total is reduced by {pc(G.rate, 0)} of adjusted family net income above {$(G.threshold)}. The engine reproduces the CRA payment chart to the cent.</p>
+    <h2>Canada workers benefit</h2>
+    <p>{pc(W.phase_in, 0)} of working income above {$(W.min_work)}, capped at {$(W.max_single)} (single) or {$(W.max_family)} (family), minus {pc(W.rate, 0)} of adjusted net income above {$(W.thr_single)} or {$(W.thr_family)}. For a couple, the lower of the two working incomes is exempt up to {$(W.secondary_exempt)}. Disability supplement: {pc(W.phase_in, 0)} of the person’s working income above {$(W.dis_min_work)}, capped at {$(W.dis_max)}, reduced by {pc(W.dis_rate, 0)} (or {pc(W.dis_rate_both, 1)} if both spouses qualify) above {$(W.dis_thr_single)} or {$(W.dis_thr_family)}. Quebec, Alberta and Nunavut use their own parameters, which the site does not model.</p>
+    <h2>CPP, OAS and the recovery tax</h2>
+    <p>CPP pension: the age-65 amount from your statement, capped at {$(P.cpp.max_65, 2)}, reduced by {pc(P.cpp.early)} per month before 65 or increased by {pc(P.cpp.late)} per month after, up to 70. OAS: {$(P.oas.max_65_74, 2)} a month from 65 to 74 and {$(P.oas.max_75, 2)} at 75 and over, times years of residence after 18 divided by 40, plus {pc(P.oas.defer)} per month of deferral (at most {pc(P.oas.defer_max, 0)}). Recovery tax: {pc(P.oas.recovery.rate, 0)} of net income above {$(P.oas.recovery.thr_2025)} (2025 income), capped at the pension itself. Service Canada publishes a zero point of {$(P.oas.recovery.zero_2025[0])} based on a reference annual pension; with the October to December 2026 amount, about thirty dollars remain at that income.</p>
+    <h2>Guaranteed Income Supplement and Allowance: a fitted model</h2>
+    <p>Canada.ca publishes, each quarter, the maximum and the income threshold for each situation, and the income at which the top-up ends, but not the full rate table. The engine rebuilds the Old Age Security Act calculation: a basic part reduced by $1 for every $2 of monthly income (single) or $1 for every $4 of combined monthly income (couple), a top-up reduced above $2,000 ($4,000 for a couple), then fits each part so it lands exactly on the published maximum, top-up threshold and income threshold. The Allowance adds an OAS-equivalent part reduced by $3 for every $4 of monthly income. Employment income is exempt up to {$(P.gis.work_exempt_full)}, then by half up to {$(P.gis.work_exempt_half_to)}. Between two thresholds, the gap with the official table can reach about a dollar a month because of income-bracket rounding. Example: single person, $10,000 of income excluding OAS: {$(exGis.monthly, 2)} a month.</p>
+    <h2>Provincial programs</h2>
+    <p>Calculated in full where the rule is published: the Ontario Trillium Benefit (energy and property tax credit, sales tax credit, northern energy credit), the BC family benefit, the New Brunswick HST credit and the Nova Scotia affordable living tax credit. Where a province publishes only a maximum and a threshold (Ontario Child Benefit, Quebec family allowance, Alberta child and family benefit, Saskatchewan credit, Atlantic and territorial child benefits), the site shows the maximum, flags it with an asterisk and leaves it out of the total.</p>
+    <h2>Tests that block a release</h2>
+    <ul>
+      <li>Groceries and Essentials Benefit: seventeen rows of the CRA payment chart (single, couple, single parent, couple with two children), to the cent.</li>
+      <li>Child benefit: the fixed amounts of the second band found within $1, the child disability benefit and the one-time payment under {$(C.lump_sum_under)}.</li>
+      <li>Workers benefit: published zero points ({$(W.zero_single)} and {$(W.zero_family)}), secondary earner exemption, capped supplement.</li>
+      <li>OAS deferred to 70: {$(P.oas.defer_70_example, 2)} a month, Service Canada’s own example; GIS and Allowance exact at the maximum and at each published threshold.</li>
+      <li>Maximum 2026 CPP contributions ({$(P.cpp.max_contrib, 2)} and {$(P.cpp.cpp2_max)} for CPP2) and the RRIF factors of section 7308.</li>
+      <li>Every small calculator, in both languages, with no missing value.</li>
+    </ul>
+    <h2>What the site does not do</h2>
+    <ul>
+      <li>It replaces neither the CRA’s notice nor Service Canada’s decision, which see your full file (shared custody, change of marital status, late return).</li>
+      <li>It does not cover Employment Insurance, provincial social assistance or veterans’ benefits.</li>
+      <li>The home calculator assumes a full OAS pension and counts CPP inside the income you enter.</li>
+    </ul>
+    <h2>Updates</h2>
+    <p>Reviewed in July, at each OAS quarter, in January for CPP, and at least every {REVIEW_CYCLE_MONTHS} months. An error reported to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> is checked against the source, fixed, then turned into a test. See the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+    <h2>All sources</h2>
+    <ul>{sources.map((s) => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.label.en}</a></li>)}</ul>
+    <p class="text-sm text-navy-600">Last checked: <time datetime={LAST_UPDATED}>{dt(LAST_UPDATED)}</time>.</p>
+  </div>
+  )}
+</PageLayout>

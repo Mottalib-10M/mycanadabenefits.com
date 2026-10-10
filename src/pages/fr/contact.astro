@@ -1,0 +1,23 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+---
+<PageLayout title={`Contact – ${SITE_NAMES[lang]}`} description="Écrire à l’éditeur de BenefitLedger : signaler un montant de prestation qui a changé ou semble faux, poser une question de méthode, intégrer le calculateur sur votre site." lang={lang} noindex={true} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Une seule adresse, lue chaque semaine : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Signaler un montant erroné</h2>
+    <p>Indiquez la page, le lien de partage du calculateur (il contient vos saisies et rien d’autre) et, si vous l’avez, la page de canada.ca, l’avis de l’ARC ou la lettre de Service Canada qui donne un autre chiffre. Un écart confirmé est corrigé dans le fichier de paramètres et ajouté aux tests, comme le prévoit la <a href={route('editorial', lang)}>politique éditoriale</a>.</p>
+    <h2>Ce que nous ne pouvons pas faire</h2>
+    <p>Nous n’avons accès à aucun dossier de l’ARC ni de Service Canada. Nous ne pouvons ni vérifier votre admissibilité, ni présenter une demande, ni retrouver un paiement manquant, ni contester une décision. Pour votre dossier, utilisez Mon dossier de l’ARC, Mon dossier Service Canada, ou appelez le programme concerné ; au Québec, Retraite Québec gère l’Allocation famille et le RRQ.</p>
+    <h2>Intégrer le calculateur</h2>
+    <p>Organismes communautaires, services d’accueil des nouveaux arrivants, centres pour aînés et médias peuvent intégrer gratuitement le calculateur des prestations du ménage. Le code est sur la <a href={route('widget', lang)}>page d’intégration</a>.</p>
+    <h2>Délai de réponse</h2><p>En général sous cinq jours ouvrables, les montants erronés d’abord. Chaque paramètre est revu au moins tous les {REVIEW_CYCLE_MONTHS} mois, et à chaque nouvelle année de prestations et chaque trimestre.</p>
+    <h2>Éditeur</h2>
+    <LegalIdentity lang={lang} />
+    <p>Voir les <a href={route('terms', lang)}>conditions d’utilisation</a>. Responsable éditorial : {AUTHOR_NAME}. Mise à jour : {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

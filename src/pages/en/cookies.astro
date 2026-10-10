@@ -1,0 +1,19 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+const updated = '2026-10-10';
+---
+<PageLayout title={`Cookies – ${SITE_NAMES[lang]}`} description="BenefitLedger writes no cookie and keeps nothing in your browser storage; the benefit calculators forget your income and family details as soon as you close the tab." lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Cookies</h1>
+    <p>This site <strong>writes no cookie</strong>. There is no consent banner because there is nothing to accept. How personal information is handled is set out in the <a href={route('privacy', lang)}>privacy policy</a>.</p>
+    <h2>The calculators forget everything</h2>
+    <p>Child benefit, Groceries and Essentials Benefit, workers benefit, CPP, OAS or GIS: each calculator works inside the page you are reading. Your income, your children’s ages and your province go into no cookie, no local storage and no server, and they are gone when the tab closes. To come back to a result later, use the share link, which stores the inputs in the address itself.</p>
+    <h2>Error monitoring without cookies</h2>
+    <p>Microsoft Clarity may run in cookie-free mode to flag broken scripts and slow pages. It writes nothing to your device, masks page text and every form field, and gives each page view a one-time identifier. There are no audience statistics, no ads and no social buttons. Blocking clarity.ms switches it off without affecting the calculators. The embeddable calculator loads none of this.</p>
+    <h2>If this changes</h2>
+    <p>Any new tool would be described here and in the privacy policy before going live, with its purpose and how to refuse it. Questions: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Updated: {updated}.</p>
+  </div>
+</PageLayout>

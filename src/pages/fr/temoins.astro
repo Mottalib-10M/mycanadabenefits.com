@@ -1,0 +1,19 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+const updated = '2026-10-10';
+---
+<PageLayout title={`Témoins (cookies) – ${SITE_NAMES[lang]}`} description="BenefitLedger n’écrit aucun témoin et ne garde rien dans votre navigateur ; les calculateurs de prestations oublient vos revenus et votre famille dès que l’onglet se ferme." lang={lang} noindex={true} breadcrumbs={[{ label: 'Témoins' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Témoins (cookies)</h1>
+    <p>Ce site <strong>n’écrit aucun témoin</strong>. Il n’affiche pas de bandeau de consentement, puisqu’il n’y a rien à accepter. Le traitement des renseignements personnels est décrit dans la <a href={route('privacy', lang)}>politique de confidentialité</a>.</p>
+    <h2>Les calculateurs oublient tout</h2>
+    <p>Allocation canadienne pour enfants, allocation pour l’épicerie, allocation pour les travailleurs, RPC, SV ou SRG : chaque calculateur fonctionne dans la page que vous lisez. Vos revenus, l’âge de vos enfants et votre province ne vont dans aucun témoin, aucun stockage local et aucun serveur, et disparaissent à la fermeture de l’onglet. Pour retrouver un résultat plus tard, gardez le lien de partage, qui range les saisies dans l’adresse elle-même.</p>
+    <h2>Suivi des erreurs sans témoin</h2>
+    <p>Microsoft Clarity peut fonctionner en mode sans témoin pour signaler les scripts en panne et les pages lentes. Il n’écrit rien sur votre appareil, masque le texte des pages et tous les champs, et donne à chaque page vue un identifiant à usage unique. Pas de statistiques d’audience, pas de publicité, pas de boutons de réseaux sociaux. Bloquer clarity.ms le coupe sans toucher aux calculateurs. Le calculateur à intégrer ne charge rien de tout cela.</p>
+    <h2>Si cela change</h2>
+    <p>Tout nouvel outil serait décrit ici et dans la politique de confidentialité avant sa mise en service, avec son but et le moyen de le refuser. Questions : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Mise à jour : {updated}.</p>
+  </div>
+</PageLayout>

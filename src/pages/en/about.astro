@@ -1,0 +1,25 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title="BenefitLedger: Who Builds These 2026 Benefit Calculators" description="Who builds BenefitLedger’s 2026 Canadian benefit calculators, why a single calculation for CCB, CGEB, CPP, OAS and GIS, and where every amount comes from." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path: route('about', lang) }])]} breadcrumbs={[{ label: 'About' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">About BenefitLedger</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>BenefitLedger is published by Radif Partners, an independent publisher of calculators. It answers a question that canada.ca leaves in pieces: once the child benefit, the Groceries and Essentials Benefit, the workers benefit, the provincial credits and, later in life, CPP, OAS and the Guaranteed Income Supplement are all counted, how much does a household actually receive, and when does each deposit land?</p>
+    <h2>Why this site does better than the first search result</h2>
+    <p>The top result for most benefit searches is canada.ca, and nothing beats it for accuracy. But each program there has its own page and its own calculator, and the July 2026 change of the GST/HST credit into the Groceries and Essentials Benefit is still missing from most independent pages. BenefitLedger adds every federal and provincial benefit in one calculation, with the amounts of the July 2026 benefit year and the October 2026 OAS quarter read on canada.ca, and sets every 2026 payment date in the same grid. It is also complete in French and in English, calculator included, which none of the independent sites we reviewed offers.</p>
+    <h2>How the amounts are set</h2>
+    <p>Each figure is read on its primary source: the CRA’s payment charts and indexation table, Service Canada’s CPP and OAS pages, ESDC’s quarterly table, the Income Tax Act and the Old Age Security Act, Retraite Québec and the provincial governments. It is then written once, with the page and its modification date, in a parameter file. The calculators read that file, and automated tests replay the CRA’s own charts before any change goes live. When a province does not publish a rule, we say so rather than guess. The details are on the <a href={route('method', lang)}>calculation method</a> page.</p>
+    <h2>What we are not</h2>
+    <p>Radif Partners is not the Government of Canada, the Canada Revenue Agency, Service Canada, Retraite Québec or any provincial ministry, and has no link with them. We do not file applications, we do not sell tax preparation, and we never ask for a social insurance number or a CRA login. An amount shown here is an estimate; the figure on your notice is the one that counts.</p>
+    <h2>Funding and data</h2><p>The site is free and needs no account. It writes no cookie and keeps none of your inputs: the calculations run in your browser. If advertising is ever added, there will be at most three spaces per page and never one above a calculator.</p>
+    <h2>Two languages, one calculation</h2><p>Every page exists in English and in French. The French version is written for readers in Quebec, New Brunswick, Ontario and the rest of francophone Canada, with the official French names of each program.</p>
+    <h2>Write to us</h2><p>An amount has changed, a figure looks wrong, a provincial program is missing: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. See also the <a href={route('editorial', lang)}>editorial policy</a> and the <a href={route('terms', lang)}>terms of use</a>.</p>
+    <p class="text-sm text-navy-600">{YEAR} amounts, checked on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-CA')}</time>.</p>
+  </div>
+</PageLayout>

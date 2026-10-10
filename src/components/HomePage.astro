@@ -1,0 +1,86 @@
+---
+/**
+ * Accueil d'une langue (page pilier, RECETTE §5). Trame propre à ce site : le calcul « tout ce que
+ * je touche » d'abord, puis le bloc citable replié, le calendrier 2026 de tous les versements (mois ×
+ * prestation), le tableau des programmes province par province, et le texte. Contenu : content/accueil.ts.
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import AllBenefits from './calc/AllBenefits';
+import MiniSim from './calc/MiniSim';
+import Clamp from './Clamp.astro';
+import { HOME } from '../content/accueil';
+import { route, type Locale } from '../i18n/routes';
+import { helpers } from '../lib/helpers';
+import { P } from '../lib/engine/params';
+import * as M from '../lib/engine/index';
+import type { SourceKey } from '../lib/engine/params';
+import { LAST_UPDATED, AUTHOR_NAME, LANG_TAGS } from '../data/site-config';
+import { displayDate } from '../lib/format';
+import { faqSchema, organizationSchema, websiteSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const x = HOME[lang];
+const H = helpers(lang);
+const fr = lang === 'fr';
+const path = route('home', lang);
+const parts = x.body(H).split(/<!--mini:([A-Za-z0-9_]+)-->/);
+const resume = x.resume(H);
+const faqs = x.faqs(H);
+const keys: SourceKey[] = ['ccbCalc', 'cgebAmounts', 'indexation', 'cppAmounts', 'oasQuarterly', 'oasRecovery', 'craDates', 'benefitsCalendar', 'cdbAmount', 'craOntario', 'rqAf', 'craBc', 'craAlberta'];
+const sources = keys.map((k) => ({ name: P.sources[k].label[lang], url: fr ? P.sources[k].url_fr : P.sources[k].url }));
+const jsonLd = [websiteSchema(lang), organizationSchema(lang), webPageSchema({ name: x.h1, description: x.description, path, lang }), webApplicationSchema({ name: x.h1, description: x.description, path, lang }), faqSchema(faqs, lang)];
+const MONTHS = fr ? ['Janv.', 'Févr.', 'Mars', 'Avr.', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'] : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const COLS: Array<[M.PayKey, string, string]> = [['cpp_oas', 'CPP · OAS', 'RPC · SV'], ['ccb', 'CCB', 'ACE'], ['cgeb', 'GST · CGEB', 'TPS · ACEBE'], ['acwb', 'ACWB', 'ACT anticipée'], ['otb', 'Ontario OTB', 'Trillium (Ont.)'], ['acfb', 'Alberta ACFB', 'ACFB (Alb.)'], ['cdb', 'CDB', 'PCPSH']];
+const day = (iso: string | null) => (iso ? String(Number(iso.slice(8, 10))) : '–');
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={faqs} sources={sources}>
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{x.h1}</h1>
+    <p class="mt-3 text-lg text-navy-700">{x.intro}</p>
+    <p class="mt-3 text-sm text-navy-600">{fr ? 'Montants vérifiés le' : 'Amounts checked on'} <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, LANG_TAGS[lang])}</time> · {fr ? 'par' : 'by'} <a href={route('about', lang)} class="underline">{AUTHOR_NAME}</a> · <a href={route('method', lang)} class="underline">{fr ? 'Méthode de calcul' : 'Calculation method'}</a></p>
+  </header>
+  <div data-outil><AllBenefits client:load lang={lang} methodHref={route('method', lang)} /></div>
+  <Clamp text={resume} lang={lang} id="clamp-home" sentences={2} class="mt-8" />
+  <section class="mt-10" id="calendar">
+    <h2 class="text-2xl font-bold text-navy-900">{x.calendarTitle}</h2>
+    <p class="mt-2 text-navy-700">{x.calendarIntro(H)}</p>
+    <div class="not-prose mt-4 overflow-x-auto">
+      <table class="w-full text-sm">
+        <caption class="mb-2 text-left text-sm text-navy-600">{fr ? 'Jour du versement, mois par mois, en 2026' : 'Payment day, month by month, in 2026'}</caption>
+        <thead><tr>
+          <th scope="col" class="border-b border-navy-300 px-2 py-2 text-left font-semibold text-navy-900">{fr ? 'Mois' : 'Month'}</th>
+          {COLS.map(([, en, f]) => <th scope="col" class="border-b border-navy-300 px-2 py-2 text-right font-semibold text-navy-900">{fr ? f : en}</th>)}
+        </tr></thead>
+        <tbody>
+          {MONTHS.map((m, i) => (
+            <tr class={i >= 9 ? 'bg-accent-50/50' : ''}>
+              <th scope="row" class="border-b border-navy-100 px-2 py-1.5 text-left font-medium text-navy-800">{m}</th>
+              {COLS.map(([k]) => <td class="tabular-nums border-b border-navy-100 px-2 py-1.5 text-right text-navy-900">{day(M.payDateIn(k, i + 1))}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-2 text-sm text-navy-600"><a class="underline" href={route('benefit-payment-dates', lang)}>{fr ? 'Prochain versement selon la prestation' : 'Your next payment, benefit by benefit'}</a></p>
+  </section>
+  <section class="mt-10" id="provinces">
+    <h2 class="text-2xl font-bold text-navy-900">{x.provTitle}</h2>
+    <div class="not-prose mt-4 overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr>
+          <th scope="col" class="border-b border-navy-300 px-3 py-2 text-left font-semibold text-navy-900">{fr ? 'Province ou territoire' : 'Province or territory'}</th>
+          <th scope="col" class="border-b border-navy-300 px-3 py-2 text-left font-semibold text-navy-900">{fr ? 'Programme' : 'Program'}</th>
+          <th scope="col" class="border-b border-navy-300 px-3 py-2 text-right font-semibold text-navy-900">{fr ? 'Maximum 2026-2027' : '2026-27 maximum'}</th>
+        </tr></thead>
+        <tbody>
+          {x.provRows(H).map(([p, prog, amt, id]) => (
+            <tr><td class="border-b border-navy-100 px-3 py-2 text-navy-800">{p}</td><td class="border-b border-navy-100 px-3 py-2"><a href={route(id, lang)} class="font-medium text-accent-700 underline">{prog}</a></td><td class="tabular-nums border-b border-navy-100 px-3 py-2 text-right text-navy-900">{amt}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <div class="prose prose-slate mt-10 max-w-none">
+    {parts.map((p, i) => i % 2 === 0 ? <Fragment set:html={p} /> : <MiniSim client:load kind={p} lang={lang} href={route('ccb-calculator', lang)} />)}
+  </div>
+</PageLayout>

@@ -1,0 +1,1276 @@
+{
+ "_lisezmoi": "Tous les paramètres du site, relevés le 2026-10-10 sur les pages officielles citées dans sources (canada.ca, ARC, EDSC, Service Canada, laws-lois.justice.gc.ca, Retraite Québec, Finances Québec, ontario.ca, gov.bc.ca, alberta.ca, gov.mb.ca). Faits bruts avec citations : reports/ca-prestations-faits/*.json. Année de prestations ARC : juillet 2026 à juin 2027 (année de base 2025). SV, SRG, Allocation : trimestre d’octobre à décembre 2026. RPC : 2026. Points non publiés par les administrations (taux de réduction de la POE, de l’Allocation famille, de l’ACFB, du crédit de la Saskatchewan) : non utilisés.",
+ "year": 2026,
+ "retrieved_at": "2026-10-10",
+ "valid_from": "2026-07-01",
+ "valid_to": "2027-06-30",
+ "sources": {
+  "ccbCalc": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants/combien-recevoir.html",
+   "label": {
+    "en": "CRA, How we calculate your Canada child benefit, July 2026 to June 2027 (modified 2026-10-05)",
+    "fr": "ARC, Comment nous calculons votre allocation canadienne pour enfants, juillet 2026 à juin 2027 (modifiée le 2026-10-05)"
+   },
+   "date_modified": "2026-10-05"
+  },
+  "ccbDates": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit/payment-dates.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants/dates-versement.html",
+   "label": {
+    "en": "CRA, Canada child benefit payment dates",
+    "fr": "ARC, Dates de versement de l’allocation canadienne pour enfants"
+   },
+   "date_modified": "2025-12-17"
+  },
+  "cdbChild": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/child-disability-benefit.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/prestation-enfants-handicapes.html",
+   "label": {
+    "en": "CRA, Child disability benefit (modified 2026-06-15)",
+    "fr": "ARC, Prestation pour enfants handicapés (modifiée le 2026-06-15)"
+   },
+   "date_modified": "2026-06-15"
+  },
+  "craDates": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/benefit-payment-dates.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/dates-versement-prestations.html",
+   "label": {
+    "en": "CRA, Benefit payment dates 2026 (modified 2026-07-31)",
+    "fr": "ARC, Dates de versement des prestations 2026 (modifiée le 2026-07-31)"
+   },
+   "date_modified": "2026-07-31"
+  },
+  "cgeb": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-groceries-essentials-benefit.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels.html",
+   "label": {
+    "en": "CRA, Canada Groceries and Essentials Benefit (modified 2026-06-08)",
+    "fr": "ARC, Allocation canadienne pour l’épicerie et les besoins essentiels (modifiée le 2026-06-08)"
+   },
+   "date_modified": "2026-06-08"
+  },
+  "cgebAmounts": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-groceries-essentials-benefit/how-much/payment-amounts.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels/combien-recevoir/montants-versements.html",
+   "label": {
+    "en": "CRA, CGEB payment amounts, base year 2025 (modified 2026-06-08)",
+    "fr": "ARC, Montants de l’ACEBE, année de base 2025 (modifiée le 2026-06-08)"
+   },
+   "date_modified": "2026-06-08"
+  },
+  "cgebChart": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-groceries-essentials-benefit/how-much/payments-chart.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels/combien-recevoir/tableau-versements.html",
+   "label": {
+    "en": "CRA, CGEB payments chart, July 2026 to June 2027",
+    "fr": "ARC, Tableau des versements de l’ACEBE, juillet 2026 à juin 2027"
+   },
+   "date_modified": "2026-06-08"
+  },
+  "gstCredit": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/goods-services-tax-harmonized-sales-tax-gst-hst-credit.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-tps-tvh.html",
+   "label": {
+    "en": "CRA, GST/HST credit, renamed in July 2026 (modified 2026-07-08)",
+    "fr": "ARC, Crédit pour la TPS/TVH, renommé en juillet 2026 (modifiée le 2026-07-08)"
+   },
+   "date_modified": "2026-07-08"
+  },
+  "indexation": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/adjustment-personal-income-tax-benefit-amounts.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/foire-questions-particuliers/rajustement-montants-fonction-indexation-impot-particuliers-prestations.html",
+   "label": {
+    "en": "CRA, Indexation of personal income tax and benefit amounts for 2026 (modified 2026-03-12)",
+    "fr": "ARC, Rajustement des montants d’impôt et de prestations selon l’indexation, 2026 (modifiée le 2026-03-12)"
+   },
+   "date_modified": "2026-03-12"
+  },
+  "cwbHow": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-45300-canada-workers-benefit-cwb/how-much-you-can-get.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-45300-allocation-canadienne-travailleurs-act/combien-demander.html",
+   "label": {
+    "en": "CRA, Line 45300, Canada workers benefit: how much you can get",
+    "fr": "ARC, Ligne 45300, Allocation canadienne pour les travailleurs : combien demander"
+   },
+   "date_modified": "2026-04-08"
+  },
+  "ita1227": {
+   "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-122.7.html",
+   "url_fr": "https://laws-lois.justice.gc.ca/fra/lois/I-3.3/article-122.7.html",
+   "label": {
+    "en": "Income Tax Act, section 122.7 (Canada workers benefit)",
+    "fr": "Loi de l’impôt sur le revenu, article 122.7 (allocation canadienne pour les travailleurs)"
+   }
+  },
+  "dtc": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/segments/tax-credits-deductions-persons-disabilities/disability-tax-credit.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/segments/deductions-credits-impot-personnes-handicapees/credit-impot-personnes-handicapees.html",
+   "label": {
+    "en": "CRA, Disability tax credit (DTC) and form T2201",
+    "fr": "ARC, Crédit d’impôt pour personnes handicapées (CIPH) et formulaire T2201"
+   },
+   "date_modified": "2025-09-16"
+  },
+  "cdbAmount": {
+   "url": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/amount.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap/montant.html",
+   "label": {
+    "en": "Government of Canada, Canada Disability Benefit: how much you could get (modified 2026-09-15)",
+    "fr": "Gouvernement du Canada, Prestation canadienne pour les personnes en situation de handicap : montant (modifiée le 2026-09-15)"
+   },
+   "date_modified": "2026-09-15"
+  },
+  "cdbElig": {
+   "url": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/eligibility.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/handicap/prestation-canadienne-personnes-situation-handicap/eligibilite.html",
+   "label": {
+    "en": "Government of Canada, Canada Disability Benefit: who is eligible",
+    "fr": "Gouvernement du Canada, Prestation canadienne pour les personnes en situation de handicap : admissibilité"
+   },
+   "date_modified": "2026-09-15"
+  },
+  "dentalQualify": {
+   "url": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/qualify.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/dentaire/regime-soins-dentaires/admissibilite.html",
+   "label": {
+    "en": "Government of Canada, Canadian Dental Care Plan: who qualifies (modified 2026-09-22)",
+    "fr": "Gouvernement du Canada, Régime canadien de soins dentaires : admissibilité (modifiée le 2026-09-22)"
+   },
+   "date_modified": "2026-09-22"
+  },
+  "dentalCoverage": {
+   "url": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/coverage.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/dentaire/regime-soins-dentaires/couverture.html",
+   "label": {
+    "en": "Government of Canada, Canadian Dental Care Plan: coverage and co-payments",
+    "fr": "Gouvernement du Canada, Régime canadien de soins dentaires : couverture et quote-part"
+   },
+   "date_modified": "2026-08-27"
+  },
+  "carbon": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-carbon-rebate.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/remise-canadienne-carbone.html",
+   "label": {
+    "en": "CRA, Canada carbon rebate (ended in 2025)",
+    "fr": "ARC, Remise canadienne sur le carbone (terminée en 2025)"
+   },
+   "date_modified": "2025-07-30"
+  },
+  "cppAmounts": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/payment-amounts.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/montants-paiement.html",
+   "label": {
+    "en": "Service Canada, CPP payment amounts 2026 (modified 2026-09-29)",
+    "fr": "Service Canada, Montants des prestations du RPC 2026 (modifiée le 2026-09-29)"
+   },
+   "date_modified": "2026-09-29"
+  },
+  "cppStart": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/when-start.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/quand-debut.html",
+   "label": {
+    "en": "Service Canada, Deciding when to start your CPP pension",
+    "fr": "Service Canada, Décider quand commencer votre pension du RPC"
+   },
+   "date_modified": "2026-10-02"
+  },
+  "cppContrib": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp/cpp-contribution-rates-maximums-exemptions.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie/retenues-paie-cotisations/regime-pensions-canada-rpc/taux-cotisations-rpc-maximums-exemptions.html",
+   "label": {
+    "en": "CRA, CPP contribution rates, maximums and exemptions",
+    "fr": "ARC, Taux de cotisation au RPC, maximums et exemptions"
+   },
+   "date_modified": "2025-10-31"
+  },
+  "cpp2": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/calculating-deductions/making-deductions/second-additional-cpp-contribution-rates-maximums.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie/calculer-retenues/preparer-deductions/deuxieme-taux-maximums-cotisation-supplementaires-rpc.html",
+   "label": {
+    "en": "CRA, Second additional CPP contribution (CPP2) rates and maximums",
+    "fr": "ARC, Deuxième cotisation supplémentaire au RPC (RPC2) : taux et maximums"
+   },
+   "date_modified": "2025-10-31"
+  },
+  "benefitsCalendar": {
+   "url": "https://www.canada.ca/en/services/benefits/calendar.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/calendrier.html",
+   "label": {
+    "en": "Government of Canada, Benefit payment dates (CPP, OAS, Canada Disability Benefit) (modified 2026-08-07)",
+    "fr": "Gouvernement du Canada, Dates de paiement des prestations (RPC, SV, PCPSH) (modifiée le 2026-08-07)"
+   },
+   "date_modified": "2026-08-07"
+  },
+  "oasPayments": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/payments.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/paiements.html",
+   "label": {
+    "en": "Service Canada, Old Age Security payment amounts, October to December 2026",
+    "fr": "Service Canada, Montants de la Sécurité de la vieillesse, octobre à décembre 2026"
+   },
+   "date_modified": "2026-09-29"
+  },
+  "oasQuarterly": {
+   "url": "https://www.canada.ca/en/employment-social-development/programs/pensions/pension/statistics/2026-quarterly-october-december.html",
+   "url_fr": "https://www.canada.ca/fr/emploi-developpement-social/programmes/pensions/pension/statistiques/rapport-trimestriel/2026-trimestriel-octobre-decembre.html",
+   "label": {
+    "en": "ESDC, Quarterly report of CPP and OAS monthly amounts, October to December 2026",
+    "fr": "EDSC, Rapport trimestriel des montants du RPC et de la SV, octobre à décembre 2026"
+   },
+   "date_modified": "2026-09-29"
+  },
+  "oasRecovery": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/recovery-tax.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/impot-recuperation.html",
+   "label": {
+    "en": "Service Canada, OAS pension recovery tax",
+    "fr": "Service Canada, Impôt de récupération de la pension de la Sécurité de la vieillesse"
+   },
+   "date_modified": "2026-09-29"
+  },
+  "oasStart": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/when-start.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/quand-debut.html",
+   "label": {
+    "en": "Service Canada, Deciding when to start your OAS pension",
+    "fr": "Service Canada, Décider quand commencer votre pension de la SV"
+   },
+   "date_modified": "2026-10-02"
+  },
+  "oasAmount": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/benefit-amount.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/montant-prestation.html",
+   "label": {
+    "en": "Service Canada, How much OAS you could receive (partial pension, 75+ increase)",
+    "fr": "Service Canada, Montant de la pension de la SV (pension partielle, hausse à 75 ans)"
+   },
+   "date_modified": "2026-09-29"
+  },
+  "oasElig": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/eligibility.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/admissibilite.html",
+   "label": {
+    "en": "Service Canada, OAS eligibility and residence rules",
+    "fr": "Service Canada, Admissibilité à la SV et règles de résidence"
+   },
+   "date_modified": "2026-10-01"
+  },
+  "oasAct": {
+   "url": "https://laws-lois.justice.gc.ca/eng/acts/O-9/",
+   "url_fr": "https://laws-lois.justice.gc.ca/fra/lois/O-9/",
+   "label": {
+    "en": "Old Age Security Act (R.S.C. 1985, c. O-9)",
+    "fr": "Loi sur la sécurité de la vieillesse (L.R.C. 1985, ch. O-9)"
+   }
+  },
+  "rrif": {
+   "url": "https://laws-lois.justice.gc.ca/eng/regulations/C.R.C.,_c._945/section-7308.html",
+   "url_fr": "https://laws-lois.justice.gc.ca/fra/reglements/C.R.C.,_ch._945/index.html",
+   "label": {
+    "en": "Income Tax Regulations, section 7308 (RRIF minimum amount factors)",
+    "fr": "Règlement de l’impôt sur le revenu, article 7308 (facteurs du minimum FERR)"
+   }
+  },
+  "craOntario": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-ontario.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-ontario.html",
+   "label": {
+    "en": "CRA, Ontario programs: Trillium benefit, OSTC, OCB (modified 2026-07-30)",
+    "fr": "ARC, Programmes de l’Ontario : prestation Trillium, CTVO, POE (modifiée le 2026-07-30)"
+   },
+   "date_modified": "2026-07-30"
+  },
+  "oeptcSheet": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/ontario-energy-property-tax-credit-oeptc-calculation-sheets/2026-ontario-energy-property-tax-credit-calculation-sheets/2026-ontario-energy-property-tax-credit-calculation-sheet-single-individuals-no-children.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-ontario.html",
+   "label": {
+    "en": "CRA, 2026 Ontario energy and property tax credit calculation sheet",
+    "fr": "ARC, Feuille de calcul 2026 du crédit d’impôt de l’Ontario pour les coûts d’énergie et les impôts fonciers (page de l’Ontario)"
+   },
+   "date_modified": "2026-07-30"
+  },
+  "ontarioOtb": {
+   "url": "https://www.ontario.ca/page/ontario-trillium-benefit",
+   "url_fr": "https://www.ontario.ca/fr/page/prestation-ontarienne-trillium",
+   "label": {
+    "en": "Government of Ontario, Ontario Trillium Benefit",
+    "fr": "Gouvernement de l’Ontario, Prestation Trillium de l’Ontario"
+   },
+   "date_modified": "2026-04-27"
+  },
+  "ontarioOcb": {
+   "url": "https://www.ontario.ca/page/ontario-child-benefit",
+   "url_fr": "https://www.ontario.ca/fr/page/prestation-ontarienne-pour-enfants",
+   "label": {
+    "en": "Government of Ontario, Ontario Child Benefit",
+    "fr": "Gouvernement de l’Ontario, Prestation ontarienne pour enfants"
+   },
+   "date_modified": "2026-06-30"
+  },
+  "ontarioGains": {
+   "url": "https://www.ontario.ca/page/guaranteed-annual-income-system-payments-seniors",
+   "url_fr": "https://www.ontario.ca/fr/page/versements-au-titre-du-regime-de-revenu-annuel-garanti-pour-les-personnes-agees",
+   "label": {
+    "en": "Government of Ontario, GAINS payments for seniors (modified 2026-07-02)",
+    "fr": "Gouvernement de l’Ontario, Versements du RRAG pour les personnes âgées"
+   },
+   "date_modified": "2026-07-02"
+  },
+  "odspBasic": {
+   "url": "https://www.ontario.ca/document/ontario-disability-support-program-policy-directives-income-support/61-basic-needs",
+   "url_fr": "https://www.ontario.ca/fr/document/directives-du-programme-ontarien-de-soutien-aux-personnes-handicapees-soutien-du-revenu/61-besoins-essentiels",
+   "label": {
+    "en": "Ontario, ODSP income support directive 6.1: basic needs (July 2026)",
+    "fr": "Ontario, directive 6.1 du POSPH : besoins essentiels (juillet 2026)"
+   },
+   "date_modified": "2026-06-30"
+  },
+  "odspShelter": {
+   "url": "https://www.ontario.ca/document/ontario-disability-support-program-policy-directives-income-support/62-shelter-calculation",
+   "url_fr": "https://www.ontario.ca/fr/document/directives-du-programme-ontarien-de-soutien-aux-personnes-handicapees-soutien-du-revenu/62-calcul-du-montant-pour-le-logement",
+   "label": {
+    "en": "Ontario, ODSP income support directive 6.2: shelter (July 2026)",
+    "fr": "Ontario, directive 6.2 du POSPH : logement (juillet 2026)"
+   },
+   "date_modified": "2026-06-30"
+  },
+  "odspWork": {
+   "url": "https://www.ontario.ca/page/working-and-earning-ontario-disability-support-program",
+   "url_fr": "https://www.ontario.ca/fr/page/travailler-et-gagner-un-revenu-pendant-que-vous-recevez-des-prestations-du-programme-ontarien-de-soutien-aux-personnes-handicapees",
+   "label": {
+    "en": "Government of Ontario, Working while on ODSP",
+    "fr": "Gouvernement de l’Ontario, Travailler en recevant le POSPH"
+   },
+   "date_modified": "2026-03-10"
+  },
+  "rqAf": {
+   "url": "https://www.retraitequebec.gouv.qc.ca/en/citizens/children/family-allowance",
+   "url_fr": "https://www.retraitequebec.gouv.qc.ca/fr/enfants/allocation-famille/Pages/allocation-famille.aspx",
+   "label": {
+    "en": "Retraite Québec, Family allowance 2026",
+    "fr": "Retraite Québec, L’Allocation famille 2026"
+   }
+  },
+  "rqAmounts": {
+   "url": "https://www.retraitequebec.gouv.qc.ca/fr/montants-prestations-et-donnees-base",
+   "url_fr": "https://www.retraitequebec.gouv.qc.ca/fr/montants-prestations-et-donnees-base",
+   "label": {
+    "en": "Retraite Québec, 2026 benefit amounts and basic data (French)",
+    "fr": "Retraite Québec, Montants des prestations et données de base 2026"
+   }
+  },
+  "qcParams": {
+   "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/finances/publications-adm/parametres/AUTFR_RegimeImpot2026.pdf",
+   "url_fr": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/finances/publications-adm/parametres/AUTFR_RegimeImpot2026.pdf",
+   "label": {
+    "en": "Finances Québec, Indexation of the personal tax system 2026 (French PDF, November 2025)",
+    "fr": "Finances Québec, Indexation du régime d’imposition des particuliers 2026 (novembre 2025)"
+   }
+  },
+  "craBc": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-british-columbia.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-colombie-britannique.html",
+   "label": {
+    "en": "CRA, British Columbia programs: BC family benefit (modified 2026-05-11)",
+    "fr": "ARC, Programmes de la Colombie-Britannique : allocation familiale de la C.-B. (modifiée le 2026-05-11)"
+   },
+   "date_modified": "2026-05-11"
+  },
+  "bcClimate": {
+   "url": "https://www2.gov.bc.ca/gov/content/taxes/income-taxes/personal/credits/climate-action",
+   "url_fr": "https://www2.gov.bc.ca/gov/content/taxes/income-taxes/personal/credits/climate-action",
+   "label": {
+    "en": "Government of B.C., Climate action tax credit (ended)",
+    "fr": "Gouvernement de la C.-B., crédit d’impôt pour l’action climatique (terminé, page en anglais)"
+   },
+   "date_modified": "2026-01-12"
+  },
+  "bcSeniors": {
+   "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/seniors/financial-legal-matters/income-security-programs/seniors-supplement",
+   "url_fr": "https://www2.gov.bc.ca/gov/content/family-social-supports/seniors/financial-legal-matters/income-security-programs/seniors-supplement",
+   "label": {
+    "en": "Government of B.C., Senior’s Supplement (modified 2026-09-18)",
+    "fr": "Gouvernement de la C.-B., Senior’s Supplement (page en anglais, modifiée le 2026-09-18)"
+   },
+   "date_modified": "2026-09-18"
+  },
+  "craAlberta": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-alberta.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-alberta.html",
+   "label": {
+    "en": "CRA, Alberta programs: Alberta child and family benefit (modified 2026-05-11)",
+    "fr": "ARC, Programmes de l’Alberta : allocation pour enfants et familles de l’Alberta (modifiée le 2026-05-11)"
+   },
+   "date_modified": "2026-05-11"
+  },
+  "albertaAcfb": {
+   "url": "https://www.alberta.ca/alberta-child-and-family-benefit",
+   "url_fr": "https://www.alberta.ca/alberta-child-and-family-benefit",
+   "label": {
+    "en": "Government of Alberta, Alberta Child and Family Benefit, 2026-27",
+    "fr": "Gouvernement de l’Alberta, Alberta Child and Family Benefit 2026-2027 (page en anglais)"
+   }
+  },
+  "aishManual": {
+   "url": "https://manuals.alberta.ca/dia-policy-manual/aish-adap-program-policy/benefits/core-benefits/living-allowance/",
+   "url_fr": "https://manuals.alberta.ca/dia-policy-manual/aish-adap-program-policy/benefits/core-benefits/living-allowance/",
+   "label": {
+    "en": "Alberta, AISH and ADAP policy manual: living allowance",
+    "fr": "Alberta, manuel AISH et ADAP : allocation de subsistance (en anglais)"
+   },
+   "date_modified": "2026-10-06"
+  },
+  "albertaAdap": {
+   "url": "https://www.alberta.ca/alberta-disability-assistance-program",
+   "url_fr": "https://www.alberta.ca/alberta-disability-assistance-program",
+   "label": {
+    "en": "Government of Alberta, Alberta Disability Assistance Program (ADAP)",
+    "fr": "Gouvernement de l’Alberta, Alberta Disability Assistance Program (page en anglais)"
+   }
+  },
+  "craSask": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-saskatchewan.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-saskatchewan.html",
+   "label": {
+    "en": "CRA, Saskatchewan low-income tax credit (modified 2026-07-30)",
+    "fr": "ARC, Crédit pour personnes à faible revenu de la Saskatchewan (modifiée le 2026-07-30)"
+   },
+   "date_modified": "2026-07-30"
+  },
+  "craManitoba": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-manitoba.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-manitoba.html",
+   "label": {
+    "en": "CRA, Manitoba: no benefit program administered by the CRA",
+    "fr": "ARC, Manitoba : aucun programme de prestations administré par l’ARC"
+   }
+  },
+  "mbCredits": {
+   "url": "https://www.gov.mb.ca/finance/personal/pcredits.html",
+   "url_fr": "https://www.gov.mb.ca/finance/personal/pcredits.fr.html",
+   "label": {
+    "en": "Manitoba Finance, Personal tax credits (renters and homeowners affordability)",
+    "fr": "Finances Manitoba, crédits d’impôt des particuliers (abordabilité pour locataires et propriétaires)"
+   }
+  },
+  "craNb": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-new-brunswick.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-nouveau-brunswick.html",
+   "label": {
+    "en": "CRA, New Brunswick programs: child tax benefit, HST credit (modified 2026-06-12)",
+    "fr": "ARC, Programmes du Nouveau-Brunswick : prestation fiscale pour enfants, crédit pour la TVH (modifiée le 2026-06-12)"
+   },
+   "date_modified": "2026-06-12"
+  },
+  "craNs": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-nova-scotia.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-nouvelle-ecosse.html",
+   "label": {
+    "en": "CRA, Nova Scotia programs: child benefit, affordable living tax credit (modified 2026-07-30)",
+    "fr": "ARC, Programmes de la Nouvelle-Écosse : prestation pour enfants, crédit pour la vie abordable (modifiée le 2026-07-30)"
+   },
+   "date_modified": "2026-07-30"
+  },
+  "craPei": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-prince-edward-island.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-ile-prince-edouard.html",
+   "label": {
+    "en": "CRA, Prince Edward Island programs (modified 2026-06-15)",
+    "fr": "ARC, Programmes de l’Île-du-Prince-Édouard (modifiée le 2026-06-15)"
+   },
+   "date_modified": "2026-06-15"
+  },
+  "craNl": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-newfoundland-labrador.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-terre-neuve-labrador.html",
+   "label": {
+    "en": "CRA, Newfoundland and Labrador programs (modified 2026-06-08)",
+    "fr": "ARC, Programmes de Terre-Neuve-et-Labrador (modifiée le 2026-06-08)"
+   },
+   "date_modified": "2026-06-08"
+  },
+  "craYukon": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/yukon.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/yukon.html",
+   "label": {
+    "en": "CRA, Yukon child benefit",
+    "fr": "ARC, Allocation pour enfants du Yukon"
+   },
+   "date_modified": "2026-05-11"
+  },
+  "craNwt": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/northwest-territories.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/territoires-nord-ouest.html",
+   "label": {
+    "en": "CRA, Northwest Territories child benefit",
+    "fr": "ARC, Prestation pour enfants des Territoires du Nord-Ouest"
+   },
+   "date_modified": "2026-05-11"
+  },
+  "craNunavut": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/nunavut.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/nunavut.html",
+   "label": {
+    "en": "CRA, Nunavut child benefit",
+    "fr": "ARC, Prestation pour enfants du Nunavut"
+   },
+   "date_modified": "2026-08-25"
+  },
+  "oasApply": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/apply.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/demande.html",
+   "label": {
+    "en": "Service Canada, Applying for OAS: automatic enrolment (modified 2026-09-09)",
+    "fr": "Service Canada, Demander la SV : inscription automatique (modifiée le 2026-09-09)"
+   },
+   "date_modified": "2026-09-09"
+  },
+  "cppApply": {
+   "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/cpp-benefit/apply.html",
+   "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/prestation-rpc/demande.html",
+   "label": {
+    "en": "Service Canada, Applying for the CPP retirement pension (modified 2026-10-01)",
+    "fr": "Service Canada, Demander la pension de retraite du RPC (modifiée le 2026-10-01)"
+   },
+   "date_modified": "2026-10-01"
+  }
+ },
+ "ccb": {
+  "period": [
+   "2026-07-01",
+   "2027-06-30"
+  ],
+  "max_under6": 8157,
+  "max_6_17": 6883,
+  "t1": 38237,
+  "t2": 82847,
+  "r1": [
+   0.07,
+   0.135,
+   0.19,
+   0.23
+  ],
+  "base2": [
+   3123,
+   6022,
+   8476,
+   10260
+  ],
+  "r2": [
+   0.032,
+   0.057,
+   0.08,
+   0.095
+  ],
+  "lump_sum_under": 240,
+  "cdb": {
+   "max": 3480,
+   "threshold": 82847,
+   "r": [
+    0.032,
+    0.057
+   ],
+   "max_2025_26": 3411
+  },
+  "dates_2026": [
+   "2026-01-20",
+   "2026-02-20",
+   "2026-03-20",
+   "2026-04-20",
+   "2026-05-20",
+   "2026-06-19",
+   "2026-07-20",
+   "2026-08-20",
+   "2026-09-18",
+   "2026-10-20",
+   "2026-11-20",
+   "2026-12-11"
+  ]
+ },
+ "cgeb": {
+  "period": [
+   "2026-07-01",
+   "2027-06-30"
+  ],
+  "base_year": 2025,
+  "individual": 445,
+  "spouse": 445,
+  "first_child_single": 445,
+  "child": 234,
+  "single_supp": 234,
+  "supp_start": 11564,
+  "supp_rate": 0.02,
+  "threshold": 46432,
+  "rate": 0.05,
+  "increase": 0.25,
+  "increase_years": [
+   2026,
+   2031
+  ],
+  "dates": [
+   "2026-07-03",
+   "2026-10-05",
+   "2027-01",
+   "2027-04"
+  ],
+  "gst_dates_2026": [
+   "2026-01-05",
+   "2026-04-02"
+  ],
+  "topup_date": "2026-06-05"
+ },
+ "cwb": {
+  "year": 2026,
+  "max_single": 1665,
+  "max_family": 2869,
+  "min_work": 3000,
+  "phase_in": 0.27,
+  "thr_single": 27392,
+  "thr_family": 31251,
+  "rate": 0.15,
+  "zero_single": 38492,
+  "zero_family": 50378,
+  "dis_max": 860,
+  "dis_min_work": 1150,
+  "dis_thr_single": 38495,
+  "dis_thr_family": 50377,
+  "dis_rate": 0.15,
+  "dis_rate_both": 0.075,
+  "advance_share": 0.5,
+  "secondary_exempt": 16714,
+  "advance_dates_2026": [
+   "2026-01-12",
+   "2026-07-10",
+   "2026-10-09"
+  ],
+  "y2025": {
+   "max_single": 1633,
+   "max_family": 2813,
+   "thr_single": 26855,
+   "thr_family": 30639,
+   "zero_single": 37742,
+   "zero_family": 49393,
+   "dis_max": 843
+  }
+ },
+ "dtc": {
+  "year": 2026,
+  "federal_amount": 10341,
+  "supp_under18": 6032,
+  "supp_childcare_threshold": 3533,
+  "form": "T2201"
+ },
+ "cdb": {
+  "period": [
+   "2026-07-01",
+   "2027-06-30"
+  ],
+  "max_month": 204.2,
+  "max_month_2025_26": 200,
+  "thr_single": 23000,
+  "thr_couple": 32500,
+  "work_exempt_single": 10210,
+  "work_exempt_couple": 14294,
+  "rate": 0.2,
+  "rate_both": 0.1,
+  "income_year": 2025,
+  "age": [
+   18,
+   64
+  ],
+  "dtc_cost_payment": 150,
+  "dates_2026": [
+   "2026-01-15",
+   "2026-02-19",
+   "2026-03-19",
+   "2026-04-16",
+   "2026-05-21",
+   "2026-06-18",
+   "2026-07-16",
+   "2026-08-20",
+   "2026-09-17",
+   "2026-10-15",
+   "2026-11-19",
+   "2026-12-17"
+  ]
+ },
+ "dental": {
+  "period": "2026-2027",
+  "income_limit": 90000,
+  "bands": [
+   [
+    70000,
+    0.0
+   ],
+   [
+    80000,
+    0.4
+   ],
+   [
+    90000,
+    0.6
+   ]
+  ]
+ },
+ "carbon": {
+  "ended": "2025-03-15",
+  "last_payment": "2025-04"
+ },
+ "cpp": {
+  "year": 2026,
+  "max_65": 1507.65,
+  "avg_65": 858.34,
+  "avg_month": "2026-07",
+  "pre_max_65": 54.69,
+  "disability_max": 1741.2,
+  "disability_flat": 610.46,
+  "disability_avg": 1236.32,
+  "survivor_u65_max": 803.54,
+  "survivor_u65_flat": 238.17,
+  "survivor_65_max": 904.59,
+  "survivor_u65_avg": 555.7,
+  "survivor_65_avg": 336.91,
+  "child_rate": 307.81,
+  "child_parttime": 153.91,
+  "combined_surv_ret_max": 1531.56,
+  "combined_surv_dis_max": 1756.14,
+  "death": 2500,
+  "death_estate_extra": 2500,
+  "indexation": 0.02,
+  "early": 0.006,
+  "late": 0.007,
+  "min_age": 60,
+  "max_age": 70,
+  "ympe": 74600,
+  "ympe_2025": 71300,
+  "exemption": 3500,
+  "rate": 0.0595,
+  "max_contrib": 4230.45,
+  "max_contrib_self": 8460.9,
+  "yampe": 85000,
+  "cpp2_rate": 0.04,
+  "cpp2_max": 416,
+  "cpp2_max_self": 832,
+  "max_total_employee": 4646.45,
+  "apply_months_ahead": 12,
+  "decision_days_online": 28,
+  "decision_days_paper": 120
+ },
+ "pay_dates_2026": {
+  "cpp_oas": [
+   "2026-01-28",
+   "2026-02-25",
+   "2026-03-27",
+   "2026-04-28",
+   "2026-05-27",
+   "2026-06-26",
+   "2026-07-29",
+   "2026-08-27",
+   "2026-09-25",
+   "2026-10-28",
+   "2026-11-26",
+   "2026-12-22"
+  ],
+  "otb": [
+   "2026-01-09",
+   "2026-02-10",
+   "2026-03-10",
+   "2026-04-10",
+   "2026-05-08",
+   "2026-06-10",
+   "2026-07-10",
+   "2026-08-10",
+   "2026-09-10",
+   "2026-10-09",
+   "2026-11-10",
+   "2026-12-10"
+  ],
+  "acfb": [
+   "2026-02-27",
+   "2026-05-27",
+   "2026-08-27",
+   "2026-11-27"
+  ],
+  "nldb": [
+   "2026-01-23",
+   "2026-02-25",
+   "2026-03-25",
+   "2026-04-24",
+   "2026-05-25",
+   "2026-06-25",
+   "2026-07-24",
+   "2026-08-25",
+   "2026-09-25",
+   "2026-10-23",
+   "2026-11-25",
+   "2026-12-24"
+  ]
+ },
+ "oas": {
+  "quarter": "2026-10/2026-12",
+  "max_65_74": 762.5,
+  "max_75": 838.75,
+  "thr_65_74": 152062,
+  "thr_75": 157923,
+  "increase_75": 0.1,
+  "defer": 0.006,
+  "defer_max": 0.36,
+  "defer_70_example": 1037.0,
+  "res_min": 10,
+  "res_min_abroad": 20,
+  "res_full": 40,
+  "quarters": {
+   "2026-01": [
+    742.31,
+    816.54
+   ],
+   "2026-04": [
+    743.05,
+    817.36
+   ],
+   "2026-07": [
+    751.97,
+    827.17
+   ],
+   "2026-10": [
+    762.5,
+    838.75
+   ]
+  },
+  "recovery": {
+   "rate": 0.15,
+   "thr_2024": 90997,
+   "thr_2025": 93454,
+   "thr_2026": 95323,
+   "zero_2025": [
+    152062,
+    157923
+   ],
+   "zero_2026_est": [
+    155320,
+    161320
+   ]
+  },
+  "enrolment_letter_age": 64
+ },
+ "gis": {
+  "quarter": "2026-10/2026-12",
+  "single": {
+   "max": 1138.9,
+   "thr": 23112,
+   "topup_thr": 10496
+  },
+  "spouse_oas": {
+   "max": 685.56,
+   "thr": 30528,
+   "topup_thr": 8800
+  },
+  "spouse_allowance": {
+   "max": 685.56,
+   "thr": 42768,
+   "topup_thr": 8800
+  },
+  "spouse_no_oas": {
+   "max": 1138.9,
+   "thr": 55392,
+   "topup_thr": 20992
+  },
+  "work_exempt_full": 5000,
+  "work_exempt_half_to": 15000,
+  "quarters": {
+   "2026-01": {
+    "single": [
+     1108.74,
+     22488
+    ],
+    "spouse_oas": [
+     667.41,
+     29712
+    ],
+    "spouse_no_oas": [
+     1108.74,
+     53904
+    ],
+    "spouse_allowance": [
+     667.41,
+     41616
+    ]
+   },
+   "2026-04": {
+    "single": [
+     1109.85,
+     22512
+    ],
+    "spouse_oas": [
+     668.08,
+     29760
+    ],
+    "spouse_no_oas": [
+     1109.85,
+     53952
+    ],
+    "spouse_allowance": [
+     668.08,
+     41664
+    ]
+   },
+   "2026-07": {
+    "single": [
+     1123.17,
+     22800
+    ],
+    "spouse_oas": [
+     676.09,
+     30096
+    ],
+    "spouse_no_oas": [
+     1123.17,
+     54624
+    ],
+    "spouse_allowance": [
+     676.09,
+     42144
+    ]
+   },
+   "2026-10": {
+    "single": [
+     1138.9,
+     23112
+    ],
+    "spouse_oas": [
+     685.56,
+     30528
+    ],
+    "spouse_no_oas": [
+     1138.9,
+     55392
+    ],
+    "spouse_allowance": [
+     685.56,
+     42768
+    ]
+   }
+  }
+ },
+ "allowance": {
+  "max": 1448.06,
+  "thr": 42768,
+  "topup_thr": 8800,
+  "survivor_max": 1726.18,
+  "survivor_thr": 31152,
+  "survivor_topup_thr": 10496,
+  "quarters": {
+   "2026-01": [
+    1409.72,
+    41616,
+    1680.47,
+    30312
+   ],
+   "2026-04": [
+    1411.13,
+    41664,
+    1682.15,
+    30336
+   ],
+   "2026-07": [
+    1428.06,
+    42144,
+    1702.34,
+    30696
+   ],
+   "2026-10": [
+    1448.06,
+    42768,
+    1726.18,
+    31152
+   ]
+  }
+ },
+ "rrif": {
+  "factors": {
+   "71": 0.0528,
+   "72": 0.054,
+   "73": 0.0553,
+   "74": 0.0567,
+   "75": 0.0582,
+   "76": 0.0598,
+   "77": 0.0617,
+   "78": 0.0636,
+   "79": 0.0658,
+   "80": 0.0682,
+   "81": 0.0708,
+   "82": 0.0738,
+   "83": 0.0771,
+   "84": 0.0808,
+   "85": 0.0851,
+   "86": 0.0899,
+   "87": 0.0955,
+   "88": 0.1021,
+   "89": 0.1099,
+   "90": 0.1192,
+   "91": 0.1306,
+   "92": 0.1449,
+   "93": 0.1634,
+   "94": 0.1879,
+   "95": 0.2
+  }
+ },
+ "prov": {
+  "on": {
+   "oeptc": {
+    "max_18_64": 1307,
+    "max_65": 1488,
+    "max_reserve": 290,
+    "student_res": 25,
+    "energy_max": 290,
+    "prop_18_64": [
+     944,
+     73
+    ],
+    "prop_65": [
+     581,
+     617
+    ],
+    "rent_share": 0.2,
+    "thr_single": 29047,
+    "thr_family": 36309,
+    "rate": 0.02
+   },
+   "noec": {
+    "max_single": 189,
+    "max_family": 290,
+    "thr_single": 50833,
+    "thr_family": 65356,
+    "rate": 0.01
+   },
+   "ostc": {
+    "per_person": 378,
+    "thr_single": 29047,
+    "thr_family": 36309,
+    "rate": 0.04
+   },
+   "otb": {
+    "lump_max": 500,
+    "none_under": 2,
+    "raised_to": 10
+   },
+   "ocb": {
+    "max_month": 146.66,
+    "max_year": 1760,
+    "threshold": 26865
+   },
+   "gains": {
+    "max_month": 92,
+    "income_max_single": 4416,
+    "income_max_couple": 8832
+   },
+   "odsp": {
+    "basic_single": 825,
+    "basic_couple": 1189,
+    "basic_couple_both": 1644,
+    "shelter": {
+     "1": 611,
+     "2": 959,
+     "3": 1038,
+     "4": 1126,
+     "5": 1215,
+     "6": 1259
+    },
+    "max_single": 1436,
+    "work_exempt": 1000,
+    "work_rate": 0.75
+   }
+  },
+  "qc": {
+   "af": {
+    "max": 3068,
+    "min": 1221,
+    "single_max": 1077,
+    "single_min": 430,
+    "thr_couple": 60398,
+    "thr_single": 44032,
+    "school": 127,
+    "disabled_month": 241,
+    "disabled_exc": [
+     1215,
+     808
+    ],
+    "example_min_income": 107000
+   },
+   "solidarity": {
+    "qst_base": 363,
+    "qst_spouse": 363,
+    "qst_alone": 172,
+    "housing_couple": 906,
+    "housing_single": 746,
+    "housing_child": 158,
+    "northern_adult": 2134,
+    "northern_child": 461,
+    "threshold": 43195
+   },
+   "qpp": {
+    "max_65": 1507.65,
+    "ympe": 74600,
+    "yampe": 85000,
+    "exemption": 3500,
+    "rate_base_total": 0.106,
+    "rate_supp_total": 0.02
+   },
+   "indexation": 0.0205
+  },
+  "bc": {
+   "bcfb": {
+    "max": [
+     1750,
+     1100,
+     900
+    ],
+    "min": [
+     775,
+     750,
+     725
+    ],
+    "thr1": 30176,
+    "thr2": 96562,
+    "rate": 0.04,
+    "single_supp": 500
+   },
+   "seniors_supp": {
+    "single": 99.3,
+    "couple": 220.5
+   },
+   "climate_ended": "2025-04"
+  },
+  "ab": {
+   "acfb": {
+    "base": [
+     1529,
+     2293,
+     3057,
+     3821
+    ],
+    "base_thr": 28116,
+    "work": [
+     782,
+     1494,
+     1920,
+     2061
+    ],
+    "work_start": 2760,
+    "work_phase_in": 0.15,
+    "work_thr": 47115
+   },
+   "aish_month": 1940,
+   "adap_month": 1740,
+   "adap_work_exempt": 700,
+   "adap_transition": 200
+  },
+  "sk": {
+   "slitc": {
+    "adult": 460,
+    "spouse": 460,
+    "child": 181,
+    "max_children": 2,
+    "max_family": 1282,
+    "thr": 39345,
+    "end": 81668
+   }
+  },
+  "mb": {
+   "renters": {
+    "2025": 575,
+    "2026": 625
+   },
+   "renters_seniors": {
+    "2025": 328,
+    "2026": 357
+   },
+   "homeowners": {
+    "2025": 1500,
+    "2026": 1600,
+    "2027": 1700
+   }
+  },
+  "nb": {
+   "nbctb_month": 20.83,
+   "nbctb_thr": 20000,
+   "school_supp": 100,
+   "hstc": {
+    "adult": 300,
+    "spouse": 300,
+    "child": 100,
+    "first_child_single": 300,
+    "thr": 35000,
+    "rate": 0.02
+   }
+  },
+  "ns": {
+   "nscb_month": 127.08,
+   "nscb_partial": [
+    26000,
+    34000
+   ],
+   "altc": {
+    "base": 255,
+    "child": 60,
+    "thr": 30000,
+    "rate": 0.05
+   }
+  },
+  "pe": {
+   "stc": {
+    "single": 310,
+    "couple": 365
+   },
+   "essentials_min": 175,
+   "essentials_start": "2026-11",
+   "child_month": {
+    "under45000": 34.16,
+    "45000to80000": 24.16
+   }
+  },
+  "nl": {
+   "child_month": [
+    157.33,
+    166.83,
+    179.16,
+    192.5
+   ],
+   "child_thr": 20397,
+   "income_supp": {
+    "single": 520,
+    "spouse": 589,
+    "child": 231,
+    "dtc": 231
+   },
+   "seniors": {
+    "max": 1882,
+    "thr": 30409,
+    "end": 46549
+   },
+   "nldb": {
+    "month": 400,
+    "year": 4800
+   },
+   "nutrition_month": 150
+  },
+  "yt": {
+   "child_month": 80.5,
+   "thr": 35000
+  },
+  "nt": {
+   "child_month_u6": 67.91,
+   "child_month_6_17": 54.33,
+   "thr": 30000
+  },
+  "nu": {
+   "child_month": 58.0,
+   "thr": 22065
+  }
+ },
+ "missing_payment_wait": {
+  "ccb_acfb": 5,
+  "others": 10
+ }
+}

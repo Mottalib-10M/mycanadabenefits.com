@@ -1,0 +1,25 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'fr';
+---
+<PageLayout title="BenefitLedger : qui conçoit ces calculateurs de prestations" description="Qui conçoit les calculateurs 2026 de BenefitLedger, pourquoi un calcul unique pour l’ACE, l’ACEBE, le RPC, la SV et le SRG, et d’où viennent les montants." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Accueil', path: route('home', lang) }, { name: 'À propos', path: route('about', lang) }])]} breadcrumbs={[{ label: 'À propos' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">À propos de BenefitLedger</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>BenefitLedger est publié par Radif Partners, éditeur indépendant de calculateurs. Il répond à une question que canada.ca laisse en morceaux : une fois comptées l’allocation canadienne pour enfants, l’allocation pour l’épicerie et les besoins essentiels, l’allocation pour les travailleurs, les crédits provinciaux et, plus tard, le RPC, la SV et le Supplément de revenu garanti, combien un ménage reçoit-il vraiment, et quand chaque dépôt arrive-t-il ?</p>
+    <h2>Pourquoi ce site fait mieux que le premier résultat de recherche</h2>
+    <p>Le premier résultat de la plupart des recherches sur les prestations est canada.ca, imbattable sur l’exactitude. Mais chaque programme y a sa page et son calculateur, et le passage du crédit pour la TPS/TVH à l’allocation pour l’épicerie, en juillet 2026, manque encore à la plupart des pages indépendantes. BenefitLedger additionne toutes les prestations fédérales et provinciales en un seul calcul, aux montants de l’année de prestations de juillet 2026 et du trimestre d’octobre 2026 de la SV lus sur canada.ca, et réunit toutes les dates de versement de 2026 dans la même grille. Il est aussi complet en français et en anglais, calculateur compris, ce qu’aucun des sites indépendants examinés ne propose.</p>
+    <h2>D’où viennent les montants</h2>
+    <p>Chaque chiffre est lu sur sa source première : tableaux de versement et d’indexation de l’ARC, pages du RPC et de la SV de Service Canada, grille trimestrielle d’EDSC, Loi de l’impôt sur le revenu et Loi sur la sécurité de la vieillesse, Retraite Québec et gouvernements provinciaux. Il est ensuite écrit une seule fois, avec la page et sa date de modification, dans un fichier de paramètres. Les calculateurs lisent ce fichier, et des tests automatiques rejouent les tableaux de l’ARC avant toute mise en ligne. Quand une province ne publie pas sa règle, nous le disons au lieu de deviner. Le détail est sur la page <a href={route('method', lang)}>méthode de calcul</a>.</p>
+    <h2>Ce que nous ne sommes pas</h2>
+    <p>Radif Partners n’est ni le gouvernement du Canada, ni l’Agence du revenu du Canada, ni Service Canada, ni Retraite Québec, ni un ministère provincial, et n’a aucun lien avec eux. Nous ne déposons aucune demande, ne vendons aucun service de déclaration et ne demandons jamais de numéro d’assurance sociale ni d’identifiant de l’ARC. Un montant affiché ici est une estimation ; seul compte celui de votre avis.</p>
+    <h2>Financement et données</h2><p>Le site est gratuit et sans compte. Il n’écrit aucun témoin et ne garde aucune de vos saisies : les calculs se font dans votre navigateur. Si de la publicité s’ajoute un jour, ce sera au plus trois emplacements par page, jamais au-dessus d’un calculateur.</p>
+    <h2>Deux langues, un seul calcul</h2><p>Chaque page existe en français et en anglais. La version française s’adresse aux lecteurs du Québec, du Nouveau-Brunswick, de l’Ontario et de toute la francophonie canadienne, avec le nom officiel français de chaque programme.</p>
+    <h2>Nous écrire</h2><p>Un montant a changé, un chiffre paraît faux, un programme provincial manque : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Voir aussi la <a href={route('editorial', lang)}>politique éditoriale</a> et les <a href={route('terms', lang)}>conditions d’utilisation</a>.</p>
+    <p class="text-sm text-navy-600">Montants {YEAR}, vérifiés le <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'fr-CA')}</time>.</p>
+  </div>
+</PageLayout>

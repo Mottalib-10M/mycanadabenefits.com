@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+---
+<PageLayout title={`Politique éditoriale – ${SITE_NAMES[lang]}`} description="D’où viennent les montants des prestations canadiennes de BenefitLedger, qui en répond, quand ils sont revus en juillet, en janvier et à chaque trimestre, et comment une erreur est corrigée." lang={lang} noindex={true} breadcrumbs={[{ label: 'Politique éditoriale' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Politique éditoriale et de correction</h1>
+    <p>Une estimation de prestation peut décider une demande de SRG, un report du RPC ou un budget bâti sur une allocation qui ne viendra pas. Un chiffre faux coûte de l’argent. Voici d’où viennent les nôtres et ce qui se passe quand l’un d’eux est faux.</p>
+    <h2>Responsabilité</h2><p>Le contenu et les calculs relèvent de {AUTHOR_NAME}. Contact : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Sources premières seulement</h2>
+    <ul>
+      <li><strong>canada.ca</strong> : tableaux de versement et d’indexation de l’ARC, pages et calendrier du RPC et de la SV de Service Canada, rapport trimestriel d’EDSC ;</li>
+      <li><strong>laws-lois.justice.gc.ca</strong> : Loi de l’impôt sur le revenu, son Règlement et la Loi sur la sécurité de la vieillesse ;</li>
+      <li><strong>sources provinciales</strong> : Retraite Québec, Finances Québec, ontario.ca, gov.bc.ca, alberta.ca, gov.mb.ca.</li>
+    </ul>
+    <p>Aucun montant n’est repris d’un blogue, d’un forum ou d’un autre calculateur. Quand une province publie un maximum sans la règle qui le réduit, le site affiche le maximum et précise que la règle n’est pas publiée.</p>
+    <h2>Des estimations, jamais des décisions</h2><p>Chaque résultat est une estimation tirée de vos saisies et des taux publiés. L’ARC et Service Canada appliquent à votre dossier complet des règles qu’un calculateur ne voit pas ; leur avis prime toujours.</p>
+    <h2>Tests avant mise en ligne</h2><p>Les tableaux et exemples officiels (tableau de l’allocation pour l’épicerie de l’ARC, revenus d’annulation publiés de l’allocation pour les travailleurs, exemple de report de la SV de Service Canada, seuils du SRG de chaque trimestre) sont recalculés à chaque construction du site. Tout écart bloque la mise en ligne.</p>
+    <h2>Calendrier de révision</h2><p>Juillet pour les prestations de l’ARC, janvier pour le RPC, chaque trimestre pour la SV et le SRG, et au moins tous les {REVIEW_CYCLE_MONTHS} mois. La date affichée sur chaque page vient du fichier de paramètres.</p>
+    <h2>Traitement des erreurs</h2>
+    <ol><li>Vérification sur la source première.</li><li>Correction du paramètre ou du code, et ajout d’un test.</li><li>Publication avec une nouvelle date sur les pages concernées.</li></ol>
+    <h2>Indépendance</h2><p>Aucun lien commercial avec un organisme public, un préparateur de déclarations, un conseiller financier ou un annonceur. Un tel lien serait indiqué sur la page.</p>
+    <p>Voir aussi la <a href={route('method', lang)}>méthode de calcul</a>. Version : {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

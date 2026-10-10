@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Editorial policy – ${SITE_NAMES[lang]}`} description="Where the Canadian benefit amounts on BenefitLedger come from, who answers for them, when they are reviewed in July, January and each OAS quarter, and how a reported error is fixed." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial and corrections policy</h1>
+    <p>A benefit estimate can decide whether someone applies for the GIS, delays CPP or budgets on a child benefit cheque that will not come. A wrong figure costs real money. This is where ours come from and what happens when one is wrong.</p>
+    <h2>Responsibility</h2><p>Content and calculations are the responsibility of {AUTHOR_NAME}. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Primary sources only</h2>
+    <ul>
+      <li><strong>canada.ca</strong>: CRA payment charts, the CRA indexation table, Service Canada’s CPP and OAS pages and calendar, ESDC’s quarterly report;</li>
+      <li><strong>laws-lois.justice.gc.ca</strong>: the Income Tax Act, its Regulations and the Old Age Security Act;</li>
+      <li><strong>provincial sources</strong>: Retraite Québec, Finances Québec, ontario.ca, gov.bc.ca, alberta.ca, gov.mb.ca.</li>
+    </ul>
+    <p>No amount is taken from a blog, a forum or another calculator. Where a province publishes a maximum but not the rule that reduces it, the site shows the maximum and says the rule is not published.</p>
+    <h2>Estimates, never decisions</h2><p>Every result is an estimate from your inputs and the published rates. The CRA and Service Canada apply rules to your full file that a calculator cannot see; their notice always prevails.</p>
+    <h2>Tests before release</h2><p>Official charts and examples (the CRA’s Groceries and Essentials Benefit chart, the published zero points of the workers benefit, Service Canada’s OAS deferral example, the GIS thresholds of each quarter) are recalculated at every build. Any gap blocks the release.</p>
+    <h2>Review calendar</h2><p>July for CRA benefits, January for CPP, every quarter for OAS and GIS, and at least every {REVIEW_CYCLE_MONTHS} months. The date shown on each page comes from the parameter file.</p>
+    <h2>Handling errors</h2>
+    <ol><li>Check against the primary source.</li><li>Fix the parameter or the code and add a test.</li><li>Publish with a new date on the pages concerned.</li></ol>
+    <h2>Independence</h2><p>No commercial link with any government body, tax preparer, financial adviser or advertiser. Any such link would be stated on the page.</p>
+    <p>See also the <a href={route('method', lang)}>calculation method</a>. Version: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

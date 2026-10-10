@@ -1,0 +1,23 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Contact – ${SITE_NAMES[lang]}`} description="Write to the publisher of BenefitLedger: report a benefit amount that changed or looks wrong, ask about the method, or embed the benefits calculator on your own site." lang={lang} noindex={true} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>One address, read every week: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Report a wrong amount</h2>
+    <p>Send the page, the calculator’s share link (it holds your inputs and nothing else) and, if you have it, the canada.ca page, CRA notice or Service Canada letter that shows a different figure. A confirmed difference is fixed in the parameter file and added to the tests, as the <a href={route('editorial', lang)}>editorial policy</a> describes.</p>
+    <h2>What we cannot do</h2>
+    <p>We have no access to any CRA or Service Canada file. We cannot check your eligibility, file an application, trace a missing payment or challenge a decision. For your own file, use My Account at the CRA, My Service Canada Account, or call the program directly; in Quebec, Retraite Québec handles the family allowance and the QPP.</p>
+    <h2>Embed the calculator</h2>
+    <p>Community organizations, settlement agencies, seniors’ centres and newsrooms can embed the household benefits calculator for free. The code is on the <a href={route('widget', lang)}>embed page</a>.</p>
+    <h2>Response time</h2><p>Usually within five business days, wrong amounts first. Every parameter is reviewed at least every {REVIEW_CYCLE_MONTHS} months and at each benefit-year and quarterly change.</p>
+    <h2>Publisher</h2>
+    <LegalIdentity lang={lang} />
+    <p>See the <a href={route('terms', lang)}>terms of use</a>. Editor in charge: {AUTHOR_NAME}. Updated: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

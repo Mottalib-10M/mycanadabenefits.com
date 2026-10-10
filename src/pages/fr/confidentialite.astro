@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { CONTACT_EMAIL, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+const updated = '2026-10-10';
+---
+<PageLayout title={`Politique de confidentialité – ${SITE_NAMES[lang]}`} description="Ce que BenefitLedger fait des renseignements personnels : revenus, âge et enfants saisis restent dans votre navigateur, aucun témoin, journaux d’hébergement, droits LPRPDE." lang={lang} noindex={true} breadcrumbs={[{ label: 'Confidentialité' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Politique de confidentialité</h1>
+    <p>Cette politique vise {SITE_URL}. Elle suit les principes de la Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE). L’éditeur étant établi en France, le Règlement général sur la protection des données (RGPD) s’applique aussi ; quand les deux diffèrent, la règle la plus protectrice vous est appliquée. Au Québec, la Loi sur la protection des renseignements personnels dans le secteur privé reconnaît des droits équivalents.</p>
+    <h2>1. Responsable</h2>
+    <LegalIdentity lang={lang} />
+    <p>Questions de confidentialité : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, adresse de la personne responsable de cette politique.</p>
+    <h2>2. Vos saisies restent sur votre appareil</h2>
+    <p>Revenu familial net, revenu de travail, nombre et âge des enfants, province, âge, estimation du RPC tirée de votre relevé de Service Canada : tout ce que vous tapez dans un calculateur est traité par votre propre navigateur. Rien n’est envoyé à un serveur, gardé dans une base de données ni rattaché à votre nom, à votre NAS ou à votre dossier de l’ARC. Nous ne demandons jamais de numéro d’assurance sociale, d’identifiant Mon dossier ni d’avis de cotisation. Le bouton de partage recopie vos saisies dans l’adresse de la page : ne transmettez ce lien qu’à des personnes de confiance.</p>
+    <h2>3. Ce qui est recueilli</h2>
+    <h3>Journaux de l’hébergeur</h3><p>GitHub Pages, l’hébergeur, enregistre l’adresse IP, l’heure, la page demandée, le navigateur et la page d’origine de chaque visite, pour la sécurité et le dépannage, et les conserve selon sa propre politique.</p>
+    <h3>Aucun témoin, aucun profil</h3><p>Le site ne dépose aucun témoin (cookie), ne garde rien dans le stockage du navigateur et ne charge aucun script publicitaire, de profilage d’audience ou de réseau social. C’est pourquoi aucun bandeau de consentement n’apparaît.</p>
+    <h3>Suivi des erreurs sans témoin</h3><p>Microsoft Clarity peut être chargé en mode sans témoin pour repérer les erreurs de script et les pages qui s’affichent mal. Dans ce mode, aucun témoin Clarity n’est écrit, chaque page vue reçoit un identifiant jetable, et le texte des pages comme les champs des formulaires sont masqués : vos montants ne sont jamais enregistrés. Bloquer clarity.ms dans votre navigateur le désactive, et les calculateurs fonctionnent toujours.</p>
+    <h3>Courriels</h3><p>Un message reçu est gardé le temps d’y répondre et de corriger l’erreur qu’il signale, puis supprimé dans les douze mois.</p>
+    <h2>4. Communication et conservation hors du Canada</h2><p>Rien n’est vendu, loué ni communiqué à des fins de marketing. Les journaux sont traités par GitHub, Inc. aux États-Unis, et les données Clarity par Microsoft ; tous deux agissent pour notre compte seulement.</p>
+    <h2>5. Vos droits</h2><p>Vous pouvez demander quels renseignements nous détenons sur vous (en pratique, seulement un courriel que vous auriez envoyé), les faire corriger ou supprimer, ou retirer votre consentement. Écrivez à <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> ; réponse sous 30 jours. Vous pouvez aussi porter plainte auprès du Commissariat à la protection de la vie privée du Canada : <a href={LEGAL.supervisoryAuthorityUrl} rel="nofollow noopener" target="_blank">{LEGAL.supervisoryAuthorityUrl}</a>, de la Commission d’accès à l’information du Québec, ou, pour le RGPD, de la CNIL.</p>
+    <h2>6. Un résultat n’est pas une décision</h2><p>Une estimation affichée ici n’a aucun effet juridique et n’engage ni l’Agence du revenu du Canada, ni Service Canada, ni Retraite Québec, ni aucune province.</p>
+    <p>Voir aussi la <a href={route('cookies', lang)}>page des témoins</a>. Mise à jour : {updated}.</p>
+  </div>
+</PageLayout>

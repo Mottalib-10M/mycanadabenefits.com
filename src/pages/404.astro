@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { route } from '../i18n/routes';
+---
+<BaseLayout title="Page not found – BenefitLedger" description="There is no page at this address. Page introuvable." lang="en" noindex={true}>
+  <div class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold text-navy-900">No page at this address</h1>
+    <p class="mt-4 text-navy-700">The link may be old, or a page may have moved when a benefit changed its name (the GST/HST credit became the Groceries and Essentials Benefit in July 2026). The calculators start here:</p>
+    <ul class="mt-4 list-disc space-y-1 pl-5 text-navy-800">
+      <li><a class="underline" href={route('home', 'en')}>Everything your household receives, in one calculation</a></li>
+      <li><a class="underline" href={route('benefit-payment-dates', 'en')}>2026 benefit payment dates</a></li>
+      <li><a class="underline" href={route('ccb-calculator', 'en')}>Canada child benefit</a></li>
+      <li><a class="underline" href={route('old-age-security', 'en')}>Old Age Security</a></li>
+      <li><a class="underline" href={route('cpp-calculator', 'en')}>CPP</a></li>
+    </ul>
+    <p class="mt-8 text-navy-700" lang="fr-CA">Aucune page à cette adresse. Les calculateurs en français commencent ici : <a class="underline" href={route('home', 'fr')}>toutes vos prestations en un calcul</a>.</p>
+  </div>
+</BaseLayout>

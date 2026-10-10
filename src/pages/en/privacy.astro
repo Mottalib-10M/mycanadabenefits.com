@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { CONTACT_EMAIL, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+const updated = '2026-10-10';
+---
+<PageLayout title={`Privacy policy – ${SITE_NAMES[lang]}`} description="What BenefitLedger does with personal information: income, age and family details typed into a calculator stay in your browser, no cookie, host logs only, PIPEDA rights." lang={lang} noindex={true} breadcrumbs={[{ label: 'Privacy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Privacy policy</h1>
+    <p>This policy covers {SITE_URL}. It follows the fair information principles of the Personal Information Protection and Electronic Documents Act (PIPEDA). The publisher is based in France, so the EU General Data Protection Regulation (GDPR) applies as well; where the two differ, you get the more protective rule.</p>
+    <h2>1. Who is responsible</h2>
+    <LegalIdentity lang={lang} />
+    <p>Privacy questions go to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, the person accountable for this policy.</p>
+    <h2>2. What you type never leaves your device</h2>
+    <p>Family net income, working income, the number and ages of your children, your province, your age, a CPP estimate from your Service Canada statement: every figure you enter in a calculator is processed by your own browser. Nothing is sent to a server, stored in a database or linked to your name, SIN or CRA account. We never ask for a social insurance number, a My Account login or a notice of assessment. The share button copies your inputs into the page address: send that link only to people you trust.</p>
+    <h2>3. What is collected</h2>
+    <h3>Host logs</h3><p>GitHub Pages, the host, records the IP address, time, page requested, browser and referring page of each visit, for security and troubleshooting, and keeps them under its own retention policy.</p>
+    <h3>No cookie, no profile</h3><p>The site sets no cookie, keeps nothing in browser storage, and loads no advertising, audience-profiling or social media script. That is why no consent banner appears.</p>
+    <h3>Cookie-free error monitoring</h3><p>Microsoft Clarity may be loaded in its cookie-free mode to detect script errors and pages that load badly. In that mode no Clarity cookie is written, each page view gets a throw-away identifier, and page text and form fields are masked so your figures are never recorded. Blocking clarity.ms in your browser turns it off and the calculators keep working.</p>
+    <h3>E-mails</h3><p>A message sent to us is kept while we answer it and correct any error it reports, then deleted within twelve months.</p>
+    <h2>4. Sharing and storage outside Canada</h2><p>Nothing is sold, rented or disclosed for marketing. Host logs are processed by GitHub, Inc. in the United States, and Clarity data by Microsoft; both act on our behalf only.</p>
+    <h2>5. Your rights</h2><p>You may ask what personal information we hold about you (in practice, only an e-mail you sent), have it corrected or deleted, or withdraw consent. Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>; we answer within 30 days. You can also complain to the {LEGAL.supervisoryAuthority}: <a href={LEGAL.supervisoryAuthorityUrl} rel="nofollow noopener" target="_blank">{LEGAL.supervisoryAuthorityUrl}</a>, or, for GDPR matters, to the French CNIL.</p>
+    <h2>6. A result is not a decision</h2><p>An estimate shown here has no legal effect and does not bind the Canada Revenue Agency, Service Canada or any province.</p>
+    <p>See also the <a href={route('cookies', lang)}>cookie page</a>. Last updated: {updated}.</p>
+  </div>
+</PageLayout>
