@@ -13,7 +13,7 @@ const CORE: RouteDef<Locale>[] = [
   R('contact', 'contact', 'contact', true),
   R('editorial', 'editorial-policy', 'politique-editoriale', true),
   R('privacy', 'privacy', 'confidentialite', true),
-  R('terms', 'terms-of-use', 'conditions-utilisation', true),
+  R('terms', 'terms-of-use', 'mentions-legales', true),
   R('cookies', 'cookies', 'temoins', true),
 ];
 export const ROUTES: RouteDef<Locale>[] = [

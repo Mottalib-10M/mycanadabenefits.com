@@ -1,0 +1,49 @@
+{
+  "_lisezmoi": "Lot B (famille, ACEBE, soins dentaires). Faits relevés le 2026-10-10 par WebFetch sur les pages citées. bCustodyShare : « Each parent with shared custody will get 50% of what they would have gotten if they had full custody of the child and the amount is calculated based on their own adjusted family net income » (ccbCalc, modifiée le 2026-10-05). bCustodyMinTime : « If the child lives with you at least 40% of the time or on an approximately equal basis with you and another individual at a different address, then both individuals are considered to have shared custody » (bCcbWho). bTempResMonths / bPermitMonth : « lived in Canada for the previous 18 months and have a valid permit in the 19th month (other than one that states does not confer status) » (bCcbWho). bRetroMonths : demande pour un enfant qui vit avec vous depuis « more than 11 months » = pièces justificatives exigées (bCcbApply). bCdbRetroYears : l'ARC calcule automatiquement la PEH pour « the current and two previous benefit years » une fois le CIPH approuvé (cdbChild, modifiée le 2026-06-15). bCcbKeep : « you must file your tax return every year to continue receiving the benefit… even if your income is tax exempt or you have no income » ; « Each parent must immediately tell the CRA of their new custody arrangement ». bCcbWho confirme aussi : « the female parent is presumed to be primarily responsible… attach a signed letter from the female parent ». bDentalApply : « Applications are open for the 2026-2027 benefit period » (fait rcsd_inscription_2026 de famille-invalidite-travail.json). dentalQualify (relu le 2026-10-10) : accès à une assurance = travail ou régime de retraite, d’un membre de la famille, organisation professionnelle ou étudiante, régime acheté ; un programme social provincial, territorial ou fédéral n’exclut pas (« you could still qualify »). dentalCoverage (relu le 2026-10-10) : quote-part payée directement au fournisseur ; frais en plus si le coût dépasse le remboursement du RCSD ; autorisation préalable pour couronnes, prothèses, certains traitements des gencives, sédation profonde.",
+  "sources": {
+    "bCcbWho": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-before-you-apply.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants/qui-demande.html",
+      "label": {
+        "en": "CRA, Canada child benefit: who can apply, shared custody (modified 2025-11-20)",
+        "fr": "ARC, Allocation canadienne pour enfants : qui peut faire une demande, garde partagée (modifiée le 2025-11-20)"
+      },
+      "date_modified": "2025-11-20"
+    },
+    "bCcbApply": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-apply.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants/comment-demande.html",
+      "label": {
+        "en": "CRA, Canada child benefit: how to apply, form RC66 and schedule RC66SCH (modified 2026-06-25)",
+        "fr": "ARC, Allocation canadienne pour enfants : comment faire une demande, formulaire RC66 et annexe RC66SCH (modifiée le 2026-06-25)"
+      },
+      "date_modified": "2026-06-25"
+    },
+    "bCcbKeep": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit/get-payments.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants/recevoir-versements.html",
+      "label": {
+        "en": "CRA, Canada child benefit: keep getting your payments (modified 2026-08-25)",
+        "fr": "ARC, Allocation canadienne pour enfants : continuer de recevoir vos versements (modifiée le 2026-08-25)"
+      },
+      "date_modified": "2026-08-25"
+    },
+    "bDentalApply": {
+      "url": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/apply.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/dentaire/regime-soins-dentaires/demande.html",
+      "label": {
+        "en": "Government of Canada, Canadian Dental Care Plan: apply, 2026-2027 benefit period (modified 2026-09-24)",
+        "fr": "Gouvernement du Canada, Régime canadien de soins dentaires : faire une demande, période 2026-2027 (modifiée le 2026-09-24)"
+      },
+      "date_modified": "2026-09-24"
+    }
+  },
+  "x": {
+    "bCustodyShare": 0.5,
+    "bCustodyMinTime": 0.4,
+    "bTempResMonths": 18,
+    "bPermitMonth": 19,
+    "bRetroMonths": 11,
+    "bCdbRetroYears": 2
+  }
+}

@@ -3,12 +3,12 @@ import { PAGES, pageById, GROUPS } from '../lib/guides';
 import type { Group } from '../lib/guide-types';
 export interface NavLink { href: string; label: string } export interface NavCategory { label: string; links: NavLink[] }
 const CORE: Record<Locale, Record<string, string>> = {
-  en: { home: 'All my benefits', method: 'Method and sources', about: 'About', widget: 'Embed the calculator', contact: 'Contact', editorial: 'Editorial policy', privacy: 'Privacy', terms: 'Terms of use', cookies: 'Cookies' },
-  fr: { home: 'Toutes mes prestations', method: 'Méthode et sources', about: 'À propos', widget: 'Intégrer le calculateur', contact: 'Contact', editorial: 'Politique éditoriale', privacy: 'Confidentialité', terms: 'Conditions d’utilisation', cookies: 'Témoins (cookies)' },
+  en: { home: 'All my benefits', method: 'Method', about: 'About', widget: 'Embed the calculator', contact: 'Contact', editorial: 'Editorial policy', privacy: 'Privacy', terms: 'Terms of use', cookies: 'Cookies' },
+  fr: { home: 'Toutes mes prestations', method: 'Méthode', about: 'À propos', widget: 'Intégrer le calculateur', contact: 'Contact', editorial: 'Politique éditoriale', privacy: 'Confidentialité', terms: 'Conditions d’utilisation', cookies: 'Témoins (cookies)' },
 };
 const GROUP_LABEL: Record<Locale, Record<Group, string>> = {
-  en: { dates: 'Payment dates', family: 'Children', credits: 'Credits and workers', cpp: 'CPP and QPP', oas: 'OAS and GIS', disability: 'Disability', provinces: 'Provinces' },
-  fr: { dates: 'Dates de versement', family: 'Enfants', credits: 'Crédits et travailleurs', cpp: 'RPC et RRQ', oas: 'SV et SRG', disability: 'Invalidité', provinces: 'Provinces' },
+  en: { dates: 'Dates', family: 'Children', credits: 'Credits', cpp: 'CPP', oas: 'OAS · GIS', disability: 'Disability', provinces: 'Provinces' },
+  fr: { dates: 'Dates', family: 'Enfants', credits: 'Crédits', cpp: 'RPC', oas: 'SV · SRG', disability: 'Invalidité', provinces: 'Provinces' },
 };
 export const groupLabel = (g: Group, lang: Locale) => GROUP_LABEL[lang][g];
 export const label = (id: string, lang: Locale) => CORE[lang][id] ?? pageById(id)?.[lang].nav ?? id;

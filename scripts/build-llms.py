@@ -4,7 +4,7 @@ import glob, html, os, re
 import sys
 sys.path.insert(0, 'src/data')
 SITE = re.search(r'SITE_URL = "(.*?)"', open('src/data/site-config.ts').read()).group(1)
-rows = {'fr': [], 'en': []}
+rows = {'en': [], 'fr': []}
 for f in sorted(glob.glob('dist/*/**/index.html', recursive=True)):
     d = open(f, encoding='utf-8').read()
     if 'noindex' in d[:3000] or '/embed/' in f: continue
@@ -14,9 +14,9 @@ for f in sorted(glob.glob('dist/*/**/index.html', recursive=True)):
     t = html.unescape(re.search(r'<title>(.*?)</title>', d, re.S).group(1))
     m = re.search(r'name="description" content="(.*?)"', d, re.S)
     rows[lang].append((path, t, html.unescape(m.group(1)) if m else ''))
-out = ['# CalculAides', '', '> Simulateurs des aides versées par les CAF en France métropolitaine, barèmes 2026 : aides au logement (APL, ALF, ALS) au barème du 1er octobre 2026, prime d’activité, RSA, allocations familiales, complément familial, ASF, allocation de rentrée scolaire, prime à la naissance, PreParE, AAH. Édité par Radif Partners, site indépendant sans lien avec la CNAF, les CAF ni la MSA. Chaque montant vient d’un texte officiel (Journal officiel, Légifrance, service-public.fr) et d’un fichier de paramètres daté et testé.', '',
-       'Les montants affichés sont des estimations : seule la CAF calcule le droit réel. Tous les calculs se font dans le navigateur, sans cookie.', '']
-for lang, titre in (('fr', '## Pages en français'), ('en', '## Pages in English')):
+out = ['# BenefitLedger', '', '> Canadian federal and provincial benefits and public pensions for 2026, in English and French: Canada child benefit, Canada Groceries and Essentials Benefit (the former GST/HST credit, renamed in July 2026), Canada workers benefit, Canada Disability Benefit, CPP, OAS, GIS, the Allowance, RRIF minimums, and provincial programs (Ontario Trillium Benefit, Quebec family allowance, BC family benefit, Alberta child and family benefit, Atlantic and territorial programs), with every 2026 payment date. Published by Radif Partners, an independent site with no link to the Government of Canada, the CRA, Service Canada or any province. Every amount comes from canada.ca, the CRA, ESDC, laws-lois.justice.gc.ca, Retraite Québec or a provincial government, in a dated, tested parameter file.', '',
+       'Amounts are estimates: the CRA, Service Canada or the province sets the amount paid. All calculations run in the browser, with no cookie.', '']
+for lang, titre in (('en', '## Pages in English'), ('fr', '## Pages en français')):
     out.append(titre); out.append('')
     for p, t, d in rows[lang]: out.append(f'- [{t}]({SITE}{p}): {d}')
     out.append('')

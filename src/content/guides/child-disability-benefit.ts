@@ -1,8 +1,109 @@
-import { defineGuide } from '../../lib/guide-types';
-/** ÉBAUCHE RÉSERVÉE : titre vide = page à écrire (CONTRIBUTING-PAGES.md). */
+import { defineGuide, type Helpers } from '../../lib/guide-types';
+
+const INC = [60000, 82847, 100000, 130000, 160000, 190000];
+/** PEH seule (sans l'ACE de base) pour n enfants admissibles au CIPH. */
+const cdbOnly = (h: Helpers, n: number, afni: number) => h.M.ccb({ under6: 0, age6to17: n, afni, disabled: n }).cdb;
+/** Revenu où la PEH s'éteint : seuil + maximum total / taux. */
+const zero = (h: Helpers, n: number) => h.P.ccb.cdb.threshold + (n * h.P.ccb.cdb.max) / h.P.ccb.cdb.r[n >= 2 ? 1 : 0];
+
 export default defineGuide({
-  id: 'child-disability-benefit', group: 'family', order: 10, mini: 'homeCcbBand',
-  related: ['cpp-payment-dates', 'benefit-payment-dates', 'ccb-calculator'], sources: ['craDates', 'benefitsCalendar'],
-  en: { slug: 'child-disability-benefit', nav: 'child-disability-benefit', card: '', title: '', description: '', h1: 'child-disability-benefit', intro: '', resume: () => '', faqs: () => [], body: () => '<p>À écrire.</p>' },
-  fr: { slug: 'prestation-enfants-handicapes', nav: 'prestation-enfants-handicapes', card: '', title: '', description: '', h1: 'prestation-enfants-handicapes', intro: '', resume: () => '', faqs: () => [], body: () => '<p>À écrire.</p>' },
+  id: 'child-disability-benefit',
+  group: 'family',
+  order: 30,
+  mini: 'childDisabilityAmount',
+  miniHref: 'ccb-calculator',
+  related: ['canada-child-benefit', 'ccb-calculator', 'disability-tax-credit', 'ccb-payment-dates', 'canada-disability-benefit'],
+  sources: ['cdbChild', 'ccbCalc', 'dtc', 'indexation'],
+  en: {
+    slug: 'child-disability-benefit',
+    nav: 'Child disability benefit',
+    card: 'The CDB adds up to $3,480 a year per child approved for the DTC, reduced above $82,847 of family income.',
+    title: 'Child Disability Benefit 2026: $3,480 per Child and Limits',
+    description: 'Child disability benefit 2026: up to $3,480 a year per child eligible for the DTC, reduced by 3.2% or 5.7% of family income above $82,847, paid with the CCB.',
+    h1: 'The child disability benefit',
+    intro: 'The child disability benefit is a supplement the CRA adds to the Canada child benefit for each child approved for the disability tax credit.',
+    resume: (h) => `From July 2026 to June 2027, the child disability benefit pays up to ${h.eur(h.P.ccb.cdb.max)} a year, or ${h.eur(h.P.ccb.cdb.max / 12, 2)} a month, for each child who is eligible for the disability tax credit. It is not a separate cheque: the Canada Revenue Agency includes it in the monthly Canada child benefit deposit. Two conditions open it, both checked by the CRA. You must be entitled to the Canada child benefit for the child, and the child must be approved for the disability tax credit through form T2201, certified by a medical practitioner. The full amount is paid when adjusted family net income is ${h.eur(h.P.ccb.cdb.threshold)} or less. Above that, the CRA subtracts ${h.pct(h.P.ccb.cdb.r[0])} of the excess income for a family with one eligible child and ${h.pct(h.P.ccb.cdb.r[1])} for two or more, applied to the total. One eligible child keeps some benefit up to about ${h.eur(zero(h, 1))} of family income. The maximum was ${h.eur(h.P.ccb.cdb.max_2025_26)} in the previous benefit year and is indexed every July. Once the credit is approved, the CRA looks back on its own over the current and ${h.num(h.P.x.bCdbRetroYears)} previous benefit years.`,
+    faqs: (h) => [
+      { q: 'Do I need to apply separately for the child disability benefit?', a: 'No, if you already receive the Canada child benefit for that child. The CRA says the CDB is then paid automatically once the child is approved for the disability tax credit. The step that matters is form T2201, Disability Tax Credit Certificate, completed by a medical practitioner and sent to the CRA, which reviews it before adding the supplement to your deposits.' },
+      { q: 'How far back does the CRA pay the CDB after DTC approval?', a: `When a child first qualifies, the CRA recalculates on its own for the current benefit year and the ${h.num(h.P.x.bCdbRetroYears)} previous ones, and pays the arrears. For periods before that, you must send a written request to your tax centre. With a maximum of ${h.eur(h.P.ccb.cdb.max)} per year in 2026-2027, arrears for a family under the threshold can add up to several thousand dollars.` },
+      { q: `Why is the CDB reduced at ${h.pct(h.P.ccb.cdb.r[1])} for two children?`, a: `For two or more eligible children, the CRA applies ${h.pct(h.P.ccb.cdb.r[1])} to the income above ${h.eur(h.P.ccb.cdb.threshold)}, against ${h.pct(h.P.ccb.cdb.r[0])} for one. The higher rate applies to a larger combined maximum, ${h.eur(2 * h.P.ccb.cdb.max)} for two children, so the benefit still lasts longer: it reaches zero at about ${h.eur(zero(h, 2))} instead of ${h.eur(zero(h, 1))} for one child.` },
+      { q: 'Is the child disability benefit the same as the disability tax credit?', a: `No. The disability tax credit is a non-refundable credit that lowers income tax: for 2026 the federal disability amount is ${h.eur(h.P.dtc.federal_amount)}, plus a supplement of up to ${h.eur(h.P.dtc.supp_under18)} for a child under 18. The CDB is cash paid monthly. Approval for the credit is the gateway to the benefit, which is why families often get both from one T2201.` },
+      { q: 'Does the CDB come on the same day as the CCB?', a: `Yes. The supplement is part of the Canada child benefit payment, so it lands on the CCB dates, around the 20th of each month, with December paid on ${h.date(h.P.ccb.dates_2026[11])} in 2026. If the yearly CCB and CDB together stay under ${h.eur(h.P.ccb.lump_sum_under)}, the CRA pays the total in July.` },
+    ],
+    body: (h) => {
+      const C = h.P.ccb.cdb;
+      const rows = INC.map((x) => [h.eur(x), h.eur(cdbOnly(h, 1, x)), h.eur(cdbOnly(h, 2, x)), h.eur(cdbOnly(h, 3, x))]);
+      const ex = h.M.ccb({ under6: 0, age6to17: 1, afni: 100000, disabled: 1 });
+      const hi = h.M.ccb({ under6: 0, age6to17: 1, afni: 130000, disabled: 1 });
+      return `
+<h2>What the supplement is for</h2>
+<p>Raising a child with a severe and prolonged impairment costs more: therapy, equipment, transport to appointments, a parent who works fewer hours. Ottawa answers part of that through the tax system, and the child disability benefit is the piece that reaches families as money every month. The ${h.src('cdbChild', 'CRA page on the CDB')} gives the 2026-2027 maximum: ${h.eur(C.max)} a year, which is ${h.eur(C.max / 12, 2)} per month, for each eligible child. A family with two eligible children can receive up to ${h.eur(2 * C.max)}.</p>
+<h2>The two gates: the CCB and the DTC</h2>
+<p>The CRA lists two conditions. First, you must be eligible for the Canada child benefit, which means living with the child, being mainly responsible for the child’s care, being a resident of Canada for tax purposes and holding a qualifying status; the ${h.a('canada-child-benefit', 'Canada child benefit guide')} details them. Second, the child must be eligible for the disability tax credit. That is a medical test, not an income test: a practitioner certifies on form T2201 that the impairment is severe, prolonged and markedly restricts daily activities, and the CRA decides.</p>
+<p>The order of events matters. Families already receiving the CCB do not file anything else: once the credit is approved for the child, the CDB starts automatically. A family that has never applied for the CCB must apply for it first, through My Account or form RC66, and the supplement follows. The ${h.a('disability-tax-credit', 'disability tax credit guide')} covers the T2201 process in detail.</p>
+<h2>How income reduces it</h2>
+<p>The CDB has a single threshold, ${h.eur(C.threshold)} of adjusted family net income, the same family figure the CRA uses for the CCB. At or below it, every eligible child gets the full ${h.eur(C.max)}. Above it, the CRA subtracts a percentage of the excess from the family’s total CDB:</p>
+<ul>
+<li>one eligible child: ${h.pct(C.r[0])} of income above ${h.eur(C.threshold)};</li>
+<li>two or more eligible children: ${h.pct(C.r[1])} of income above ${h.eur(C.threshold)}.</li>
+</ul>
+<p>Unlike the CCB, there is no first tier with steep rates. The reduction is gentle, which keeps the supplement alive for many middle-income families who no longer get much CCB. A family with one eligible child keeps a payment up to about ${h.eur(zero(h, 1))}; with two, up to about ${h.eur(zero(h, 2))}.</p>
+${h.table(['Adjusted family net income 2025', 'One eligible child', 'Two eligible children', 'Three eligible children'], rows, 'Child disability benefit for the year, July 2026 to June 2027 (CRA formula, site engine)', ['r', 'r', 'r', 'r'])}
+<h2>A family example</h2>
+<p>A couple with one 9-year-old approved for the credit reports ${h.eur(100000)} of family net income for 2025. The CCB for the child is ${h.eur(ex.base)} for the year after its own reduction. The CDB starts from ${h.eur(C.max)} and loses ${h.pct(C.r[0])} of the ${h.eur(100000 - C.threshold)} above the threshold, leaving ${h.eur(ex.cdb)}. The deposit each month is therefore ${h.eur(ex.monthly, 2)}, of which ${h.eur(ex.cdb / 12, 2)} is the disability supplement. The ${h.a('ccb-calculator', 'CCB calculator')} runs the same computation for any number of children.</p>
+<h2>Why it weighs more as income rises</h2>
+<p>At modest incomes the CDB is a small part of the deposit next to the CCB. Higher up, the balance flips. For one eligible child aged 6 to 17 and a family income of ${h.eur(130000)}, the engine gives a CCB of ${h.eur(hi.base)} for the year and a CDB of ${h.eur(hi.cdb)}: the supplement now accounts for ${h.pct(hi.cdb / hi.annual, 0)} of the total. The reason is the slower pace of reduction, ${h.pct(C.r[0])} against the ${h.pct(h.P.ccb.r2[0])} plus a fixed amount that the CCB loses in its second tier. Parents who assume they earn too much for any child benefit, and never apply, can leave this money unclaimed for years. A family above the CCB range still needs to be eligible for the CCB on paper, so the application comes first even when the expected CCB is close to zero.</p>
+<h2>Arrears after a late approval</h2>
+<p>Many families learn about the credit years after the diagnosis. The CRA softens that: on a first approval, it automatically reviews the current benefit year and the ${h.num(h.P.x.bCdbRetroYears)} before it, paying what was missed. To go further back, a written request to the tax centre is needed. Since the maximum moves each July (${h.eur(C.max_2025_26)} for 2025-2026, ${h.eur(C.max)} for 2026-2027, according to the ${h.src('indexation', 'CRA indexation table')}), arrears are not simply the current maximum times the number of years.</p>
+<h2>Where the CDB ends and other programs begin</h2>
+<p>The supplement stops when the child turns 18, along with the CCB. From that age, other support can take over: the federal ${h.a('canada-disability-benefit', 'Canada Disability Benefit')}, for adults aged ${h.num(h.P.cdb.age[0])} to ${h.num(h.P.cdb.age[1])} approved for the same tax credit, and provincial income support. Inside the tax return, the disability amount of ${h.eur(h.P.dtc.federal_amount)} and the child supplement of up to ${h.eur(h.P.dtc.supp_under18)} remain separate, non-refundable credits that a parent can claim as a transfer. The supplement is reduced when child care and attendant care expenses claimed for the child exceed ${h.eur(h.P.dtc.supp_childcare_threshold)}, as the ${h.src('dtc', 'CRA disability tax credit page')} explains.</p>
+<p>The figures here apply the ${h.src('ccbCalc', 'CRA calculation rules')} for July 2026 to June 2027. The amount paid is the one shown on your CRA notice.</p>
+`; },
+  },
+  fr: {
+    slug: 'prestation-enfants-handicapes',
+    nav: 'Prestation pour enfants handicapés',
+    card: 'La PEH ajoute jusqu’à 3 480 $ par an pour chaque enfant admissible au CIPH, réduite au-delà de 82 847 $.',
+    title: 'Prestation pour enfants handicapés 2026 : 3 480 $ par enfant',
+    description: 'Prestation pour enfants handicapés 2026 : jusqu’à 3 480 $ par an par enfant admissible au CIPH, réduite de 3,2 % ou 5,7 % du revenu au-delà de 82 847 $.',
+    h1: 'La prestation pour enfants handicapés',
+    intro: 'La prestation pour enfants handicapés est un supplément que l’ARC ajoute à l’allocation canadienne pour enfants pour chaque enfant admissible au crédit d’impôt pour personnes handicapées.',
+    resume: (h) => `De juillet 2026 à juin 2027, la prestation pour enfants handicapés verse jusqu’à ${h.eur(h.P.ccb.cdb.max)} par année, soit ${h.eur(h.P.ccb.cdb.max / 12, 2)} par mois, pour chaque enfant admissible au crédit d’impôt pour personnes handicapées. Ce n’est pas un chèque à part : l’Agence du revenu du Canada l’intègre au dépôt mensuel de l’allocation canadienne pour enfants. Deux conditions y donnent droit, toutes deux vérifiées par l’ARC. Vous devez avoir droit à l’allocation canadienne pour enfants pour cet enfant, et l’enfant doit être admissible au crédit d’impôt pour personnes handicapées, au moyen du formulaire T2201 rempli par un professionnel de la santé. Le montant complet est versé quand le revenu familial net rajusté ne dépasse pas ${h.eur(h.P.ccb.cdb.threshold)}. Au-delà, l’ARC retranche ${h.pct(h.P.ccb.cdb.r[0])} du revenu excédentaire pour une famille qui compte un enfant admissible, et ${h.pct(h.P.ccb.cdb.r[1])} pour deux ou plus, sur le total. Avec un enfant admissible, une partie de la prestation subsiste jusqu’à environ ${h.eur(zero(h, 1))} de revenu familial. Le maximum était de ${h.eur(h.P.ccb.cdb.max_2025_26)} l’année de prestations précédente et il est indexé chaque juillet. Une fois le crédit approuvé, l’ARC revoit d’elle-même l’année en cours et les ${h.num(h.P.x.bCdbRetroYears)} années de prestations précédentes.`,
+    faqs: (h) => [
+      { q: 'Faut-il faire une demande distincte pour la prestation pour enfants handicapés ?', a: 'Non, si vous recevez déjà l’allocation canadienne pour enfants pour cet enfant. L’ARC indique que la PEH est alors versée automatiquement dès que l’enfant est admissible au crédit d’impôt pour personnes handicapées. L’étape décisive est le formulaire T2201, Certificat pour le crédit d’impôt pour personnes handicapées, rempli par un professionnel de la santé et envoyé à l’ARC, qui l’examine avant d’ajouter le supplément à vos dépôts.' },
+      { q: 'Jusqu’à quand l’ARC remonte-t-elle pour la PEH après l’approbation du CIPH ?', a: `Quand un enfant devient admissible, l’ARC recalcule d’office l’année de prestations en cours et les ${h.num(h.P.x.bCdbRetroYears)} précédentes, puis verse les arriérés. Pour les périodes antérieures, il faut envoyer une demande écrite à votre centre fiscal. Avec un maximum de ${h.eur(h.P.ccb.cdb.max)} par année en 2026-2027, les arriérés d’une famille sous le seuil peuvent atteindre plusieurs milliers de dollars.` },
+      { q: `Pourquoi la PEH est-elle réduite de ${h.pct(h.P.ccb.cdb.r[1])} avec deux enfants ?`, a: `Pour deux enfants admissibles ou plus, l’ARC applique ${h.pct(h.P.ccb.cdb.r[1])} au revenu qui dépasse ${h.eur(h.P.ccb.cdb.threshold)}, contre ${h.pct(h.P.ccb.cdb.r[0])} pour un seul. Ce taux plus élevé porte sur un maximum combiné plus grand, ${h.eur(2 * h.P.ccb.cdb.max)} pour deux enfants : la prestation dure donc plus longtemps et ne s’éteint que vers ${h.eur(zero(h, 2))}, au lieu de ${h.eur(zero(h, 1))} pour un enfant.` },
+      { q: 'La prestation pour enfants handicapés est-elle la même chose que le CIPH ?', a: `Non. Le crédit d’impôt pour personnes handicapées est un crédit non remboursable qui réduit l’impôt : pour 2026, le montant fédéral pour personnes handicapées est de ${h.eur(h.P.dtc.federal_amount)}, plus un supplément d’au plus ${h.eur(h.P.dtc.supp_under18)} pour un enfant de moins de 18 ans. La PEH, elle, est de l’argent versé chaque mois. L’approbation du crédit ouvre la porte à la prestation : un seul T2201 sert donc aux deux.` },
+      { q: 'La PEH arrive-t-elle le même jour que l’ACE ?', a: `Oui. Le supplément fait partie du versement de l’allocation canadienne pour enfants : il arrive aux dates de l’ACE, vers le 20 de chaque mois, et le ${h.date(h.P.ccb.dates_2026[11])} pour décembre 2026. Si l’ACE et la PEH réunies restent sous ${h.eur(h.P.ccb.lump_sum_under)} pour l’année, l’ARC verse le total en juillet.` },
+    ],
+    body: (h) => {
+      const C = h.P.ccb.cdb;
+      const rows = INC.map((x) => [h.eur(x), h.eur(cdbOnly(h, 1, x)), h.eur(cdbOnly(h, 2, x)), h.eur(cdbOnly(h, 3, x))]);
+      const ex = h.M.ccb({ under6: 0, age6to17: 1, afni: 100000, disabled: 1 });
+      const hi = h.M.ccb({ under6: 0, age6to17: 1, afni: 130000, disabled: 1 });
+      return `
+<h2>À quoi sert ce supplément</h2>
+<p>Élever un enfant qui a une déficience grave et prolongée coûte plus cher : thérapies, équipement, déplacements vers les rendez-vous, un parent qui réduit ses heures. Ottawa en compense une partie par le régime fiscal, et la prestation pour enfants handicapés est la part qui arrive aux familles en argent, chaque mois. La ${h.src('cdbChild', 'page de l’ARC sur la PEH')} fixe le maximum de 2026-2027 à ${h.eur(C.max)} par année, soit ${h.eur(C.max / 12, 2)} par mois, pour chaque enfant admissible. Une famille de deux enfants admissibles peut recevoir jusqu’à ${h.eur(2 * C.max)}.</p>
+<h2>Les deux portes d’entrée : l’ACE et le CIPH</h2>
+<p>L’ARC pose deux conditions. D’abord, vous devez être admissible à l’allocation canadienne pour enfants : vivre avec l’enfant, être principalement responsable de ses soins, résider au Canada aux fins de l’impôt et avoir un statut admissible ; le ${h.a('canada-child-benefit', 'guide de l’allocation canadienne pour enfants')} les détaille. Ensuite, l’enfant doit être admissible au crédit d’impôt pour personnes handicapées. C’est un critère médical, pas un critère de revenu : un professionnel de la santé atteste sur le formulaire T2201 que la déficience est grave, prolongée et limite de façon marquée les activités courantes, puis l’ARC tranche.</p>
+<p>L’ordre des étapes compte. Une famille qui reçoit déjà l’ACE n’a rien d’autre à remplir : dès que le crédit est accordé pour l’enfant, la PEH démarre seule. Une famille qui n’a jamais demandé l’ACE doit d’abord le faire, par son compte de l’ARC ou le formulaire RC66, et le supplément suit. Le ${h.a('disability-tax-credit', 'guide du crédit d’impôt pour personnes handicapées')} décrit la démarche du T2201.</p>
+<h2>Comment le revenu la réduit</h2>
+<p>La PEH n’a qu’un seuil, ${h.eur(C.threshold)} de revenu familial net rajusté, le même chiffre familial que pour l’ACE. Jusqu’à ce seuil, chaque enfant admissible reçoit les ${h.eur(C.max)} complets. Au-delà, l’ARC retranche du total de la famille un pourcentage de l’excédent :</p>
+<ul>
+<li>un enfant admissible : ${h.pct(C.r[0])} du revenu au-delà de ${h.eur(C.threshold)} ;</li>
+<li>deux enfants admissibles ou plus : ${h.pct(C.r[1])} du revenu au-delà de ${h.eur(C.threshold)}.</li>
+</ul>
+<p>Contrairement à l’ACE, il n’y a pas de première tranche à taux élevé. La réduction est douce, ce qui garde le supplément en vie pour bien des familles à revenu moyen qui ne touchent plus grand-chose de l’ACE. Avec un enfant admissible, un versement subsiste jusqu’à environ ${h.eur(zero(h, 1))} ; avec deux, jusqu’à environ ${h.eur(zero(h, 2))}.</p>
+${h.table(['Revenu familial net rajusté 2025', 'Un enfant admissible', 'Deux enfants admissibles', 'Trois enfants admissibles'], rows, 'Prestation pour enfants handicapés de l’année, juillet 2026 à juin 2027 (formule de l’ARC, moteur du site)', ['r', 'r', 'r', 'r'])}
+<h2>Un exemple de famille</h2>
+<p>Un couple dont l’enfant de 9 ans est admissible au crédit déclare ${h.eur(100000)} de revenu familial net pour 2025. L’ACE de l’enfant est de ${h.eur(ex.base)} pour l’année après sa propre réduction. La PEH part de ${h.eur(C.max)} et perd ${h.pct(C.r[0])} des ${h.eur(100000 - C.threshold)} au-dessus du seuil : il reste ${h.eur(ex.cdb)}. Le dépôt mensuel est donc de ${h.eur(ex.monthly, 2)}, dont ${h.eur(ex.cdb / 12, 2)} au titre du supplément. Le ${h.a('ccb-calculator', 'calcul de l’ACE')} fait la même opération pour n’importe quel nombre d’enfants.</p>
+<h2>Pourquoi elle pèse plus quand le revenu monte</h2>
+<p>À revenu modeste, la PEH ne représente qu’une petite part du dépôt à côté de l’ACE. Plus haut, l’équilibre s’inverse. Pour un enfant admissible de 6 à 17 ans et un revenu familial de ${h.eur(130000)}, le moteur donne une ACE de ${h.eur(hi.base)} pour l’année et une PEH de ${h.eur(hi.cdb)} : le supplément forme alors ${h.pct(hi.cdb / hi.annual, 0)} du total. La raison tient au rythme de réduction plus lent, ${h.pct(C.r[0])}, contre les ${h.pct(h.P.ccb.r2[0])} plus un montant fixe que perd l’ACE dans sa deuxième tranche. Des parents persuadés de gagner trop pour toute prestation pour enfants, et qui ne font jamais la demande, laissent cet argent de côté pendant des années. Même au-dessus de la zone utile de l’ACE, il faut y être admissible sur papier : la demande d’ACE passe donc en premier, même quand l’ACE attendue est presque nulle.</p>
+<h2>Les arriérés après une approbation tardive</h2>
+<p>Bien des familles découvrent le crédit des années après le diagnostic. L’ARC en tient compte : à une première approbation, elle revoit automatiquement l’année de prestations en cours et les ${h.num(h.P.x.bCdbRetroYears)} précédentes, et verse ce qui manquait. Pour remonter plus loin, il faut une demande écrite au centre fiscal. Comme le maximum change chaque juillet (${h.eur(C.max_2025_26)} pour 2025-2026, ${h.eur(C.max)} pour 2026-2027 selon le ${h.src('indexation', 'tableau d’indexation de l’ARC')}), les arriérés ne se résument pas au maximum actuel multiplié par le nombre d’années.</p>
+<h2>Après la PEH : les autres programmes</h2>
+<p>Le supplément cesse aux 18 ans de l’enfant, en même temps que l’ACE. D’autres aides peuvent alors prendre le relais : la ${h.a('canada-disability-benefit', 'Prestation canadienne pour les personnes en situation de handicap')}, pour les adultes de ${h.num(h.P.cdb.age[0])} à ${h.num(h.P.cdb.age[1])} ans admissibles au même crédit, et l’aide au revenu provinciale. Dans la déclaration, le montant pour personnes handicapées de ${h.eur(h.P.dtc.federal_amount)} et le supplément pour enfant d’au plus ${h.eur(h.P.dtc.supp_under18)} restent des crédits non remboursables distincts, qu’un parent peut se faire transférer. Ce supplément diminue quand les frais de garde et de préposé aux soins demandés pour l’enfant dépassent ${h.eur(h.P.dtc.supp_childcare_threshold)}, comme l’explique la ${h.src('dtc', 'page de l’ARC sur le CIPH')}.</p>
+<p>Les montants de cette page appliquent les ${h.src('ccbCalc', 'règles de calcul de l’ARC')} pour juillet 2026 à juin 2027. Le montant versé est celui de votre avis de l’ARC.</p>
+`; },
+  },
 });

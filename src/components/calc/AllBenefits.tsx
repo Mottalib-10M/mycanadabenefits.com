@@ -17,7 +17,7 @@ import { useEffect } from 'react';
 import { readParams, updateURL } from '../../lib/url-state';
 
 type Age = 'u60' | '60' | '65' | '75';
-interface Line { label: string; annual: number; note?: string; capped?: boolean; href?: string }
+interface Line { label: string; annual: number; note?: string; capped?: boolean; floor?: boolean; href?: string }
 
 export function computeAll(o: { prov: M.Province; couple: boolean; age: Age; spouseAge: Age; u6: number; o6: number; income: number; work: number; spouseWork: number; rent: number }, lang: L): Line[] {
   const { prov, couple, age, spouseAge, u6, o6, income, work, spouseWork, rent } = o;
@@ -55,7 +55,7 @@ export function computeAll(o: { prov: M.Province; couple: boolean; age: Age; spo
     if (senior(age) || (couple && senior(spouseAge))) { const g = P.prov.on.gains; const lim = couple ? g.income_max_couple : g.income_max_single; if (income < lim) lines.push({ label: tr(lang, 'Ontario GAINS (maximum)', 'RRAG de l’Ontario (maximum)'), annual: g.max_month * 12 * ((senior(age) ? 1 : 0) + (couple && senior(spouseAge) ? 1 : 0)), capped: income > 0 }); }
   } else if (prov === 'qc' && kids) {
     const a = M.quebecFamilyAllowance(kids, !couple, afni);
-    lines.push({ label: tr(lang, 'Quebec family allowance', 'Allocation famille du Québec'), annual: a.partial ? a.min : a.max, capped: a.partial, note: a.partial ? tr(lang, 'guaranteed minimum shown', 'minimum garanti affiché') : undefined });
+    lines.push({ label: tr(lang, 'Quebec family allowance', 'Allocation famille du Québec'), annual: a.partial ? a.min : a.max, capped: a.partial, floor: a.partial, note: a.partial ? tr(lang, 'guaranteed minimum shown', 'minimum garanti affiché') : undefined });
   } else if (prov === 'bc' && kids) {
     lines.push({ label: tr(lang, 'BC family benefit', 'Allocation familiale de la C.-B.'), annual: M.bcFamilyBenefit(kids, afni, !couple).annual });
   } else if (prov === 'ab' && kids) {
@@ -112,7 +112,7 @@ export default function AllBenefits({ lang = 'en', methodHref }: { lang?: L; met
     </>} result={<>
       <Head label={tr(lang, 'What your household receives, per month', 'Ce que votre ménage reçoit, par mois')} value={$(total / 12)} sub={`${$(total)} ${tr(lang, 'a year', 'par an')}`} />
       <table className="mt-4 w-full text-sm"><tbody className="divide-y divide-navy-200">
-        {lines.map((l) => <tr key={l.label}><td className="py-1.5 pr-3 text-navy-700">{l.label}{l.capped ? ' *' : ''}</td><td className="tabular-nums py-1.5 text-right text-navy-900">{l.capped && l.annual === 0 ? '—' : `${$(l.annual / 12)}`}</td></tr>)}
+        {lines.map((l) => <tr key={l.label}><td className="py-1.5 pr-3 text-navy-700">{l.label}{l.capped ? ' *' : ''}</td><td className="tabular-nums py-1.5 text-right text-navy-900">{l.capped && l.annual === 0 ? '—' : l.capped ? `${l.floor ? '≥' : '≤'} ${$(l.annual / 12)}` : $(l.annual / 12)}</td></tr>)}
       </tbody></table>
       <Note>{tr(lang, 'Monthly average of each annual amount. * Not added to the total: the province publishes no reduction rate, or the rate is not federal. Full OAS assumed (40 years in Canada). ', 'Moyenne mensuelle de chaque montant annuel. * Non additionné : la province ne publie pas son taux de réduction, ou le barème n’est pas fédéral. SV complète supposée (40 ans au Canada). ')}{disclaimer(lang)}</Note>
       <MethodLink href={methodHref} lang={lang} />

@@ -1,0 +1,164 @@
+{
+  "_lisezmoi": "Lot F (SRG, Allocation, Allocation au survivant, RRAG de l'Ontario). Faits relevés le 2026-10-10 par WebFetch sur les pages citées ; citations verbatim dans le champ quote de chaque source.",
+  "sources": {
+    "fGisElig": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/eligibility.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/admissibilite.html",
+      "label": {
+        "en": "Service Canada, Guaranteed Income Supplement: do you qualify (modified 2026-10-01)",
+        "fr": "Service Canada, Supplément de revenu garanti : êtes-vous admissible (modifiée le 2026-10-01)"
+      },
+      "date_modified": "2026-10-01",
+      "quote": "Be 65 years old or older; Receive the Old Age Security (OAS) pension; Live in Canada; Not be under a sponsorship agreement ... unless your sponsor: Has died, Is imprisoned for more than 6 months, Has been convicted of an offence against you, Declares personal bankruptcy"
+    },
+    "fGisReceive": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/while-receiving.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/pendant-que-vous-recevez.html",
+      "label": {
+        "en": "Service Canada, Guaranteed Income Supplement: receive your benefits (modified 2026-10-08)",
+        "fr": "Service Canada, Supplément de revenu garanti : tout en recevant le SRG (modifiée le 2026-10-08)"
+      },
+      "date_modified": "2026-10-08",
+      "quote": "Each year, your benefit is reviewed using your federal tax return. ... file your taxes by April 30 every year to avoid any disruption of payments. ... In July, you'll get a letter stating if: Your benefit is renewed (with the new amount). ... You cannot collect the Guaranteed Income Supplement if you are outside of Canada for more than 6 months. ... You do not pay taxes on your Guaranteed Income Supplement payments. ... [report if] you and your spouse or common-law partner live apart"
+    },
+    "fGisApply": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/apply.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/demande.html",
+      "label": {
+        "en": "Service Canada, Apply for the Guaranteed Income Supplement (modified 2026-09-09)",
+        "fr": "Service Canada, Demander le Supplément de revenu garanti (modifiée le 2026-09-09)"
+      },
+      "date_modified": "2026-09-09",
+      "quote": "If Service Canada has enough information, you'll get a letter shortly after your 64th birthday confirming your Old Age Security (OAS) enrollment and that we'll try to enroll you for the Guaranteed Income Supplement (GIS) automatically. ... ISP-3550 for both OAS and GIS, or ISP-3025 for GIS only"
+    },
+    "fGisAmount": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/benefit-amount.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/montant-prestation.html",
+      "label": {
+        "en": "Service Canada, Guaranteed Income Supplement: how much you could receive (modified 2026-09-29)",
+        "fr": "Service Canada, Supplément de revenu garanti : combien pourriez-vous recevoir (modifiée le 2026-09-29)"
+      },
+      "date_modified": "2026-09-29",
+      "quote": "Your income from the previous year ... If you have a spouse/common-law partner, your combined income ... Each January, April, July, and October pension amounts are increased to reflect any increases in the cost of living."
+    },
+    "fAllowElig": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance/eligibility.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation/admissibilite.html",
+      "label": {
+        "en": "Service Canada, Allowance: do you qualify (modified 2026-10-01)",
+        "fr": "Service Canada, Allocation : êtes-vous admissible (modifiée le 2026-10-01)"
+      },
+      "date_modified": "2026-10-01",
+      "quote": "You are 60 to 64 years old; Your spouse or common-law partner receives the Old Age Security (OAS) pension and is eligible to receive the Guaranteed Income Supplement (GIS); You are a Canadian citizen or a legal resident; You have lived in Canada for at least 10 years since the age of 18; [combined annual income] less than $42,768; You or your spouse or common-law partner is not currently under a sponsorship agreement"
+    },
+    "fAllowAmount": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance/benefit-amount.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation/montant-prestation.html",
+      "label": {
+        "en": "Service Canada, Allowance: how much you could receive (modified 2026-09-29)",
+        "fr": "Service Canada, Allocation : combien pourriez-vous recevoir (modifiée le 2026-09-29)"
+      },
+      "date_modified": "2026-09-29",
+      "quote": "Your marital status, and on your income from the previous year (or if a couple, it depends on your combined income). ... If your income this year is less than last year [you may contact Service Canada to have the benefit based on an estimate of this year's income]"
+    },
+    "fAllowReceive": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance/while-receiving.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation/pendant-que-vous-recevez.html",
+      "label": {
+        "en": "Service Canada, Allowance: receiving your benefit (modified 2026-10-08)",
+        "fr": "Service Canada, Allocation : recevoir votre prestation (modifiée le 2026-10-08)"
+      },
+      "date_modified": "2026-10-08",
+      "quote": "You do not pay taxes on your Allowance payments, but you must file your taxes by April 30 every year to avoid any disruption of payments. ... You cannot collect the Allowance benefit if you are outside of Canada for more than 6 months. ... If you and your spouse or common-law partner live apart for reasons beyond your control, such as long-term care for one or both of you, you may be able to receive a higher benefit payment amount."
+    },
+    "fAllowApply": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance/apply.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation/demande.html",
+      "label": {
+        "en": "Service Canada, Apply for the Allowance or the Allowance for the Survivor (modified 2026-10-09)",
+        "fr": "Service Canada, Demander l’Allocation ou l’Allocation au survivant (modifiée le 2026-10-09)"
+      },
+      "date_modified": "2026-10-09",
+      "quote": "Application for the Allowance or Allowance for the Survivor (ISP3008); Statement of income for the Renewal of the Guaranteed Income Supplement, the Allowance or the Allowance for the Survivor (ISP3026); Information Sheet for Allowance or Allowance for the Survivor (ISP3008A). You can only apply online if you live in Canada, have not already applied, and don't have a third party managing your account."
+    },
+    "fAllowOverview": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation.html",
+      "label": {
+        "en": "Service Canada, Allowance (modified 2026-10-07)",
+        "fr": "Service Canada, Allocation (modifiée le 2026-10-07)"
+      },
+      "date_modified": "2026-10-07",
+      "quote": "If you were in receipt of the Allowance and your spouse or common-law partner has passed away, you will be automatically converted to the Allowance for the Survivor."
+    },
+    "fSurvElig": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance-survivor/eligibility.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation-survivant/admissibilite.html",
+      "label": {
+        "en": "Service Canada, Allowance for the Survivor: do you qualify (modified 2026-10-01)",
+        "fr": "Service Canada, Allocation au survivant : êtes-vous admissible (modifiée le 2026-10-01)"
+      },
+      "date_modified": "2026-10-01",
+      "quote": "Your spouse or common-law partner has died and you have not remarried or entered into a new common-law relationship; You are 60 to 64 years old; You live in Canada; You have lived in Canada for at least 10 years since the age of 18; You are not currently under a sponsorship agreement; Your annual income is less than $31,152. FR : vous êtes un citoyen canadien ou un résident autorisé"
+    },
+    "fSurvReceive": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance-survivor/while-receiving.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation-survivant/pendant-que-vous-recevez.html",
+      "label": {
+        "en": "Service Canada, Allowance for the Survivor: receiving your benefit (modified 2026-10-08)",
+        "fr": "Service Canada, Allocation au survivant : recevoir votre prestation (modifiée le 2026-10-08)"
+      },
+      "date_modified": "2026-10-08",
+      "quote": "You must file your taxes by April 30 every year to avoid any disruption of payments. Each year, your benefit is reviewed using your federal tax return. ... Tell us as soon as possible if there are any changes to your contact information, income, marital status. ... You cannot collect the Allowance for the Survivor benefit if you are outside of Canada for more than 6 months. ... You do not pay taxes on your Allowance for the Survivor payments"
+    },
+    "fSurvOverview": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance-survivor.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation-survivant.html",
+      "label": {
+        "en": "Service Canada, Allowance for the Survivor (modified 2026-10-07)",
+        "fr": "Service Canada, Allocation au survivant (modifiée le 2026-10-07)"
+      },
+      "date_modified": "2026-10-07",
+      "quote": "The Allowance for the Survivor is a monthly tax-free payment"
+    },
+    "fGains": {
+      "url": "https://www.ontario.ca/page/guaranteed-annual-income-system-payments-seniors",
+      "url_fr": "https://www.ontario.ca/fr/page/paiements-du-regime-de-revenu-annuel-garanti-pour-les-personnes-agees",
+      "label": {
+        "en": "Government of Ontario, Guaranteed Annual Income System (GAINS) payments for seniors (updated 2026-07-02)",
+        "fr": "Gouvernement de l’Ontario, Paiements du Régime de revenu annuel garanti (RRAG) pour les personnes âgées (mise à jour le 2026-07-02)"
+      },
+      "date_modified": "2026-07-02",
+      "quote": "Eligible seniors can receive up to $92 per month through GAINS for the 2026 benefit year, which runs from July 1, 2026 to June 30, 2027. ... are 65 years or older; have been a Canadian resident for 10 years or more; have lived in Ontario for the past 12 months or for a total of 20 years since turning age 18 ... GAINS payments are provided on top of the Old Age Security (OAS) pension and the Guaranteed Income Supplement (GIS) payments ... Private income may include money from a workplace pension, the Canada Pension Plan, bank interest, etc. ... If you currently receive the OAS pension and GIS, you do not have to apply. ... file your income tax return every year by April 30, even if you don't have income to report. ... Your GAINS payment can change during the benefit year if your private income or marital status changes. ... Payments are issued on or about the 25th day of each month, starting in July and ending in June of the next year. ... different income limits apply if you are a senior whose spouse is under age 65 or is not eligible to receive OAS. [No reduction formula published on the page.]"
+    },
+    "fSurvAmount": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/allowance-survivor/benefit-amount.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/allocation-survivant/montant-prestation.html",
+      "label": {
+        "en": "Service Canada, Allowance for the Survivor: how much you could receive (modified 2026-09-29)",
+        "fr": "Service Canada, Allocation au survivant : combien pourriez-vous recevoir (modifiée le 2026-09-29)"
+      },
+      "date_modified": "2026-09-29",
+      "quote": "The amount of your Allowance for the Survivor depends on: Your income from the previous year"
+    }
+  },
+  "x": {
+    "fFileByDay": 30,
+    "fAbroadMonths": 6,
+    "fSponsorJailMonths": 6,
+    "fGisAge": 65,
+    "fAllowAgeMin": 60,
+    "fAllowAgeMax": 64,
+    "fResYears": 10,
+    "fEnrolLetterAge": 64,
+    "fGainsAge": 65,
+    "fGainsCanadaYears": 10,
+    "fGainsOnMonths": 12,
+    "fGainsOnYears": 20,
+    "fGainsPayDay": 25,
+    "fGainsYear": [
+      "2026-07-01",
+      "2027-06-30"
+    ]
+  }
+}

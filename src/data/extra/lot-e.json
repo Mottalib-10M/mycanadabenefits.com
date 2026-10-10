@@ -1,0 +1,39 @@
+{
+  "_lisezmoi": "Lot E (SV, report, récupération, pension partielle, hausse à 75 ans, FERR) : faits relevés le 2026-10-10 par WebFetch sur les pages officielles citées. Règles textuelles vérifiées (citations) : « Guaranteed Income Supplement and Allowance amounts do not increase when you delay your OAS pension » et « If you don't receive the OAS pension: You cannot get the Guaranteed Income Supplement » (oasStart, FR : « Les montants du Supplément de revenu garanti et de l'Allocation n'augmentent pas lorsque vous reportez votre pension de la SV ») ; « Once you start receiving your OAS pension, any additional time you live in Canada will not increase your payment amount » (oasStart) ; « This 10% increase will not affect your Guaranteed Income Supplement (GIS) payment amount » (oasAmount, FR : « Cette augmentation de 10 % n'aura aucune incidence sur le calcul du montant de votre Supplément de revenu garanti (SRG) ») ; « the net world income you report is used to estimate your OAS pension repayment amount for the following tax year. The repayment amount is then divided monthly and deducted from your OAS pension payments » (oasRecovery) ; LIR 146.3(1) « minimum amount » : nul l'année de conclusion du fonds, élément B(b) âge de l'époux ou conjoint de fait si le premier rentier le choisit « before any payment has been made under the fund by the carrier » ; LIR 146.3(5) « There shall be included in computing the income of a taxpayer for a taxation year all amounts received by the taxpayer in the year out of or under a registered retirement income fund » ; Loi sur la SV art. 2 : revenu calculé selon la LIR, sauf « the amount of any benefit under this Act » ; SRG : « Your income from the previous year » (eGisAmount) ; accords : « Combining your contributions or residence in each country to meet the minimum requirements for eligibility », exemple de Thomas (16 ans au Canada, Autriche, « his payment amount is still based only on his 16 years in Canada ») ; travail à l'étranger pour un employeur canadien compté comme résidence si retour dans les 6 mois après la fin de l'emploi ou 65 ans atteints pendant l'emploi (oasElig).",
+  "sources": {
+    "eOasAgreements": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/international/agreements.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/internationales/accords.html",
+      "label": {
+        "en": "Service Canada, Social security agreements (modified 2026-10-09)",
+        "fr": "Service Canada, Accords de sécurité sociale (modifiée le 2026-10-09)"
+      },
+      "date_modified": "2026-10-09"
+    },
+    "eIta1463": {
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-146.3.html",
+      "url_fr": "https://laws-lois.justice.gc.ca/fra/lois/I-3.3/page-147.html",
+      "label": {
+        "en": "Income Tax Act, section 146.3 (RRIF minimum amount, spouse’s age election, RRIF income taxable), current to 2026-09-21",
+        "fr": "Loi de l’impôt sur le revenu, article 146.3 (minimum du FERR, choix de l’âge du conjoint, retraits imposables), à jour au 2026-09-21"
+      },
+      "date_modified": "2026-09-21"
+    },
+    "eGisAmount": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/old-age-security/guaranteed-income-supplement/benefit-amount.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/montant-prestation.html",
+      "label": {
+        "en": "Service Canada, Guaranteed Income Supplement: how much you could receive (modified 2026-09-29)",
+        "fr": "Service Canada, Supplément de revenu garanti : combien vous pourriez recevoir (modifiée le 2026-09-29)"
+      },
+      "date_modified": "2026-09-29"
+    }
+  },
+  "x": {
+    "eRecoveryExampleIncome": 100000,
+    "eRecoveryExample": 981.9,
+    "eRecoveryZero2024": [148451, 154196],
+    "eAgreementExampleYears": 16,
+    "eAbroadWorkReturnMonths": 6
+  }
+}

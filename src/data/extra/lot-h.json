@@ -1,0 +1,105 @@
+{
+  "sources": {
+    "hMbChild": {
+      "url": "https://www.gov.mb.ca/fs/eia/mcb.html",
+      "url_fr": "https://www.gov.mb.ca/fs/eia/mcb.fr.html",
+      "label": {
+        "en": "Manitoba Families, Manitoba Child Benefit (page not dated)",
+        "fr": "Familles Manitoba, Prestation pour enfants du Manitoba (page non datée)"
+      },
+      "date_modified": null
+    },
+    "hNlDisability": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/province-newfoundland-labrador.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/programmes-provinciaux-territoriaux/province-terre-neuve-labrador.html",
+      "label": {
+        "en": "CRA, Newfoundland and Labrador disability benefit (modified 2026-06-08)",
+        "fr": "ARC, Prestation pour personnes handicapées de Terre-Neuve-et-Labrador (modifiée le 2026-06-08)"
+      },
+      "date_modified": "2026-06-08"
+    }
+  },
+  "x": {
+    "_lisezmoi": "Lot H (provinces de l'Atlantique, Saskatchewan, Manitoba, territoires). Faits relevés par WebFetch le 2026-10-10, citations dans le compte rendu du lot.",
+    "hNbWis": {
+      "month": 20.83,
+      "phase_start": 3750,
+      "full_at": 10000,
+      "partial": [
+        20921,
+        25921
+      ],
+      "_src": "craNb : « up to $20.83 per month for each family. It is phased in once family earned income is more than $3,750. The maximum benefit is reached when family earned income is $10,000. If your adjusted family net income is between $20,921 and $25,921, you may get part of the supplement. »"
+    },
+    "hNbSchool": {
+      "amount": 100,
+      "thr": 20000,
+      "born_from": "2009-01-01",
+      "born_to": "2021-12-31",
+      "_src": "craNb : « paid once a year in July » ; « For the July 2026 NBSS payment, if your adjusted family net income for 2025 is $20,000 or less, you will get $100 for each of your children born between January 1, 2009 and December 31, 2021. »"
+    },
+    "hNsChildAge": 18,
+    "hPeChild": {
+      "low": 34.16,
+      "mid": 24.16,
+      "thr": 45000,
+      "end": 80000,
+      "age": 18,
+      "_src": "craPei : « $24.16 per month for each child under 18 years of age if your adjusted family net income is between $45,000 and $80,000. If your adjusted family net income is greater than $80,000, the amount is reduced to zero. »"
+    },
+    "hPeEssentials": {
+      "min": 175,
+      "start": "2026-11-01",
+      "_src": "craPei : « Starting in November 2026, the Prince Edward Island tax credit will be renamed the Prince Edward Island essentials benefit (PEIEB) » ; « A new minimum payment amount of $175 will also be introduced, ensuring that all Prince Edward Island residents who qualify can receive the benefit, regardless of income. » Paramètres complets non publiés (princeedwardisland.ca bloqué par Radware)."
+    },
+    "hNlSeniorAge": 64,
+    "hNlNutritionAge": 5,
+    "hNlDb": {
+      "full_under": 29402,
+      "limit_single": 42404,
+      "limit_couple": 55404,
+      "age_min": 18,
+      "age_max": 64,
+      "day": 25,
+      "_src": "craNl : individus sous 29 402 $ : 400 $ ; partiel jusqu'à 42 404 $ (individu) ou 55 404 $ (couple dont les deux sont admissibles) ; « NLDB payments are normally issued on the 25th of each month » ; « You do not need to apply for this benefit »"
+    },
+    "hNtGrid": {
+      "u6": [
+        67.91,
+        122.25,
+        166.41,
+        203.75
+      ],
+      "u6_add": 30.58,
+      "k617": [
+        54.33,
+        97.83,
+        133.08,
+        163.0
+      ],
+      "k617_add": 24.41,
+      "_src": "craNwt : montants mensuels familiaux par nombre d'enfants (un, deux, trois, quatre, plus par enfant additionnel), modifiée le 2026-05-11"
+    },
+    "hMbChild": {
+      "month": 35,
+      "year": 420,
+      "example_income": 15000,
+      "example_end": 20000,
+      "_src": "hMbChild : « up to $420 tax free each year for every child » ; « up to $35.00 per month, per child » ; « earning $15,000 or less, this totals $1,260 with partial benefits for parents who earn $15,000 to $20,000 »"
+    },
+    "hMbSchoolRebate": {
+      "max": 235,
+      "rate": 0.01,
+      "thr": 40000,
+      "age": 65,
+      "_src": "mbCredits : Seniors' School Tax Rebate, maximum $235 (2024 et suivantes), « reduced by 1.0% of net family income over $40,000 », propriétaires de 65 ans ou plus"
+    },
+    "hMbRentOld": {
+      "year_max": 525,
+      "month": 43.75,
+      "_src": "mbCredits : « savings of up to $525 a year » ; « may claim up to $43.75 per month for each month they rented their home »"
+    },
+    "hNbHstChildAge": 19,
+    "hNbHstChildAge_src": "craNb : « $100 per child under 19 years of age »"
+  }
+}

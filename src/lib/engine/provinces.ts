@@ -101,7 +101,13 @@ export function provinceChildMax(p: Province, children: number, under6 = 0): { a
     case 'pe': return { annualMax: r2(children * pr.pe.child_month.under45000 * 12), threshold: 45000 };
     case 'nl': return { annualMax: r2(children ? pr.nl.child_month.slice(0, Math.min(children, 4)).reduce((s, x) => s + x, 0) * 12 + pos(children - 4) * pr.nl.child_month[3] * 12 : 0), threshold: pr.nl.child_thr };
     case 'yt': return { annualMax: r2(children * pr.yt.child_month * 12), threshold: pr.yt.thr };
-    case 'nt': return { annualMax: r2((under6 * pr.nt.child_month_u6 + pos(children - under6) * pr.nt.child_month_6_17) * 12), threshold: pr.nt.thr };
+    case 'nt': {
+      // Montants familiaux publiés par l'ARC (ils n'augmentent pas proportionnellement au nombre d'enfants).
+      // Âges mêlés : calcul non publié, on prend la grille la plus généreuse (borne haute).
+      const fam = (g: number[], extra: number, n: number) => (n <= 0 ? 0 : n <= 4 ? g[n - 1] : g[3] + (n - 4) * extra);
+      const grid = under6 > 0 ? fam(pr.nt.grid_u6, pr.nt.extra_u6, children) : fam(pr.nt.grid_6_17, pr.nt.extra_6_17, children);
+      return { annualMax: r2(grid * 12), threshold: pr.nt.thr };
+    }
     case 'nu': return { annualMax: r2(children * pr.nu.child_month * 12), threshold: pr.nu.thr };
     default: return { annualMax: 0, threshold: null };
   }

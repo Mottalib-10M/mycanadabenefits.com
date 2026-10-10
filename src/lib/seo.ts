@@ -33,7 +33,7 @@ export function webApplicationSchema(o: { name: string; description: string; pat
     inLanguage: inLang(o.lang), dateModified: LAST_UPDATED, isAccessibleForFree: true, author: authorNode(o.lang), publisher: publisherNode(o.lang) });
 }
 export function faqSchema(items: FAQItem[], lang: Locale): string {
-  return JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: inLang(lang), mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } })) });
+  return JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: inLang(lang), mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a.replace(/<[^>]+>/g, '') } })) });
 }
 export function breadcrumbSchema(items: Array<{ name: string; path: string }>): string {
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: `${SITE_URL}${it.path}` })) });

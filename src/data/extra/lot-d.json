@@ -1,0 +1,112 @@
+{
+  "sources": {
+    "dDeath": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/cpp-death-benefit.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/prestation-rpc-deces.html",
+      "label": {
+        "en": "Service Canada, CPP death benefit (modified 2026-05-25)",
+        "fr": "Service Canada, Prestation de décès (modifiée le 2026-05-25)"
+      },
+      "date_modified": "2026-05-25"
+    },
+    "dSurvivor": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/cpp-survivor-pension.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/rpc-pension-survivant.html",
+      "label": {
+        "en": "Service Canada, Survivor's pension (modified 2026-05-25)",
+        "fr": "Service Canada, Pension de survivant (modifiée le 2026-05-25)"
+      },
+      "date_modified": "2026-05-25"
+    },
+    "dDisElig": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp-disability-benefit/eligibility.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/prestation-invalidite-rpc/admissibilite.html",
+      "label": {
+        "en": "Service Canada, Canada Pension Plan disability benefits: Do you qualify (modified 2026-10-01)",
+        "fr": "Service Canada, Prestations d’invalidité du Régime de pensions du Canada : Êtes-vous admissible (modifiée le 2026-10-01)"
+      },
+      "date_modified": "2026-10-01"
+    },
+    "dDisReceive": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp-disability-benefit/receive-benefits.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/prestation-invalidite-rpc/recevoir-prestations.html",
+      "label": {
+        "en": "Service Canada, CPP disability benefits: Receiving your benefit (modified 2026-10-08)",
+        "fr": "Service Canada, Prestations d’invalidité du RPC : Recevoir votre prestation (modifiée le 2026-10-08)"
+      },
+      "date_modified": "2026-10-08"
+    },
+    "dDisAfter": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp-disability-benefit/after-apply.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/prestation-invalidite-rpc/apres-demande.html",
+      "label": {
+        "en": "Service Canada, CPP disability benefits: After you apply (modified 2026-10-01)",
+        "fr": "Service Canada, Prestations d’invalidité du RPC : après la demande (modifiée le 2026-10-01)"
+      },
+      "date_modified": "2026-10-01"
+    },
+    "dCppAmount": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/amount.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/montant-prestation.html",
+      "label": {
+        "en": "Service Canada, CPP retirement pension: How much you could receive (modified 2026-09-29)",
+        "fr": "Service Canada, Pension de retraite du RPC : Montant que vous pourriez recevoir (modifiée le 2026-09-29)"
+      },
+      "date_modified": "2026-09-29"
+    },
+    "dPrb": {
+      "url": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/cpp-post-retirement.html",
+      "url_fr": "https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/rpc-apres-retraite.html",
+      "label": {
+        "en": "Service Canada, CPP Post-Retirement Benefit (PRB): Overview (modified 2025-01-22)",
+        "fr": "Service Canada, Prestation après-retraite (PAR) du RPC : aperçu (modifiée le 2025-01-22)"
+      },
+      "date_modified": "2025-01-22"
+    },
+    "dCppStartStop": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp/starting-stopping-cpp-deductions.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/retenues-paie/retenues-paie-cotisations/regime-pensions-canada-rpc/commencer-a-retenir-cesser-retenir-cotisations-rpc.html",
+      "label": {
+        "en": "CRA, Starting and stopping CPP deductions (modified 2025-10-21)",
+        "fr": "ARC, Commencer à retenir ou cesser de retenir les cotisations au RPC (modifiée le 2025-10-21)"
+      },
+      "date_modified": "2025-10-21"
+    }
+  },
+  "x": {
+    "dPrbAvg": 26.25,
+    "dCombSurvRetAvg": 1086.16,
+    "dCombSurvDisAvg": 1372.71,
+    "dDisEarnings": 1130.74,
+    "dSurvU65Earnings": 565.37,
+    "dSurv65Rate": 0.6,
+    "dSurvU65Rate": 0.375,
+    "dSurvCommonLawYears": 1,
+    "dSurvBackMonths": 12,
+    "dWeeksMin": 6,
+    "dWeeksMax": 12,
+    "dDeathMax": 5000,
+    "dDeathAvg": 2620.72,
+    "dDeathTopupFrom": "2025-01-01",
+    "dDeathMinYears": 3,
+    "dDeathAltYears": 10,
+    "dDeathExecutorDays": 60,
+    "dDisMinAge": 18,
+    "dDisMaxAge": 65,
+    "dDisYearsWindow": 6,
+    "dDisYearsNeeded": 4,
+    "dDisYearsNeededLong": 3,
+    "dDisLongCareer": 25,
+    "dDisWorkLimit": 7400,
+    "dDisDecisionDays": 120,
+    "dDisTerminalDays": 5,
+    "dDisGraveDays": 30,
+    "dDropoutYears": 8,
+    "dBestYears": 40,
+    "dEnhancedRate": 0.119,
+    "dEnhancedFrom": "2019-01-01",
+    "dContribStartAge": 18,
+    "dContribStopAge": 70,
+    "dElectStopFrom": 65
+  }
+}

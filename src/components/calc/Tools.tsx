@@ -221,7 +221,7 @@ export function RrifCalc({ lang = 'en', methodHref }: Props) {
   return (
     <Shell id="rrif" form={<Row2>
       <NumberField id="rr-v" label={tr(lang, 'RRIF value on January 1', 'Valeur du FERR au 1er janvier')} value={val} onChange={setVal} unit="$" max={50000000} lang={lang} />
-      <NumberField id="rr-a" label={tr(lang, 'Age on January 1', 'Âge au 1er janvier')} value={age} onChange={setAge} max={110} help={tr(lang, 'You may use your spouse’s age if younger.', 'Vous pouvez prendre l’âge du conjoint s’il est plus jeune.')} lang={lang} />
+      <NumberField id="rr-a" label={tr(lang, 'Age on January 1', 'Âge au 1er janvier')} value={age} onChange={setAge} max={110} help={tr(lang, 'A younger spouse’s age can be used if chosen before the first payment.', 'L’âge d’un conjoint plus jeune peut servir s’il est choisi avant le premier paiement.')} lang={lang} />
     </Row2>} result={<>
       <Head label={tr(lang, 'Minimum withdrawal this year', 'Retrait minimum cette année')} value={$(r.minimum)} sub={tr(lang, `${pct(r.factor, lang, 2)} of the January 1 value`, `${pct(r.factor, lang, 2)} de la valeur au 1er janvier`)} />
       <Rows rows={next} />

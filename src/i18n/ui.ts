@@ -4,7 +4,7 @@ const en = {
   skipToContent: 'Skip to content', mainNav: 'Main navigation', breadcrumbLabel: 'Breadcrumb', breadcrumbHome: 'Home', menuOpen: 'Open menu',
   faqTitle: 'Questions people ask', relatedCalculators: 'Related pages and calculators', sourcesTitle: 'Official sources', writtenBy: 'Written by',
   asOf: 'Amounts', lastUpdated: 'checked on', footerValidated: 'Sources: canada.ca, Canada Revenue Agency, Service Canada, Retraite Québec, provincial governments', footerBrowser: 'Runs in your browser · nothing you type is sent · free, no account',
-  footerDisclaimer: 'BenefitLedger is an independent site published by Radif Partners. It is not the Government of Canada, the Canada Revenue Agency, Service Canada, Retraite Québec or any provincial ministry, and it is not affiliated with them. Every figure is an estimate built from the rates those bodies publish and from what you enter: the amount actually paid is the one on your notice. We collect no data and refer you to no one.', footerPopular: '', notFound: 'There is no page at this address.',
+  footerDisclaimer: 'BenefitLedger is an independent site published by Radif Partners. It is not the Government of Canada, the Canada Revenue Agency, Service Canada, Retraite Québec or any provincial ministry, and it is not affiliated with them. Figures are estimates only, built from the rates those bodies publish and from what you enter: the amount actually paid is the one on your notice. We collect no data and refer you to no one.', footerPopular: '', notFound: 'There is no page at this address.',
   readMore: 'Keep reading',
 };
 const fr: typeof en = {

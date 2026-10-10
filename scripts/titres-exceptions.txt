@@ -1,0 +1,12 @@
+# Noms officiels des programmes fédéraux, qui commencent par « Canada » : ce sont
+# exactement les requêtes mesurées au Keyword Planner (« canada workers benefit »,
+# « canada disability benefit », « canada child benefit », « canada carbon rebate »,
+# « canada dental benefit »). Déplacer « Canada » casserait le nom du programme.
+Canada Child Benefit
+Canada Workers Benefit
+Canada Disability Benefit
+Canada Carbon Rebate
+Canada Dental Care Plan
+Canada Dental Benefit
+Canada Groceries and Essentials Benefit
+Canada Pension Plan

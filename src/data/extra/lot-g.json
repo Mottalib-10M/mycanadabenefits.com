@@ -1,0 +1,94 @@
+{
+ "_lisezmoi": "Lot G (pages provinciales ON, QC, BC, AB et RRQ). Faits relevés le 2026-10-10 par WebFetch sur les pages citées ; citations dans le compte rendu du lot.",
+ "sources": {
+  "gRqDates": {
+   "url": "https://www.retraitequebec.gouv.qc.ca/en/payment-dates",
+   "url_fr": "https://www.retraitequebec.gouv.qc.ca/fr/dates-paiement",
+   "label": {
+    "en": "Retraite Québec, Payment dates 2026 (QPP and family allowance)",
+    "fr": "Retraite Québec, Dates de paiement 2026 (RRQ et Allocation famille)"
+   }
+  },
+  "gRqQppCalc": {
+   "url": "https://www.retraitequebec.gouv.qc.ca/en/citizens/retirement-planning/applying-your-retirement-pension/retirement-pension-quebec-pension-plan/calculation-your-retirement-pension",
+   "url_fr": "https://www.retraitequebec.gouv.qc.ca/fr/citoyens/retraite-et-planification/demandez-rente-retraite/rente-retraite-regime-rentes-quebec/calcul-rente-retraite",
+   "label": {
+    "en": "Retraite Québec, Calculation of your retirement pension under the Québec Pension Plan",
+    "fr": "Retraite Québec, Calcul de votre rente de retraite du Régime de rentes du Québec"
+   }
+  }
+ },
+ "x": {
+  "gQppDates": [
+   "2026-01-30",
+   "2026-02-27",
+   "2026-03-31",
+   "2026-04-30",
+   "2026-05-29",
+   "2026-06-30",
+   "2026-07-31",
+   "2026-08-31",
+   "2026-09-29",
+   "2026-10-30",
+   "2026-11-30",
+   "2026-12-30"
+  ],
+  "gQppMinAge": 60,
+  "gQppMaxAge": 72,
+  "gQppEarlyLow": 0.005,
+  "gQppEarlyHigh": 0.006,
+  "gQppLate": 0.007,
+  "gQppMax60": 964.9,
+  "gQppMax72": 2394.15,
+  "gQppAvg": {
+   "60": 490,
+   "65": 731,
+   "70": 1038,
+   "72": 1161
+  },
+  "gQppEmpBaseMax": 3768.3,
+  "gQppEmpSuppMax": 711,
+  "gQppSecondRateTotal": 0.08,
+  "gQppDeath": 2500,
+  "gAfDatesQuarterly": [
+   "2026-01-05",
+   "2026-04-01",
+   "2026-07-02",
+   "2026-10-01"
+  ],
+  "gAfDatesMonthly": [
+   "2026-01-05",
+   "2026-02-02",
+   "2026-03-02",
+   "2026-04-01",
+   "2026-05-01",
+   "2026-06-01",
+   "2026-07-02",
+   "2026-08-03",
+   "2026-09-01",
+   "2026-10-01",
+   "2026-11-02",
+   "2026-12-01"
+  ],
+  "gAfSchoolDate": "2026-07-02",
+  "gAfExampleSingleMax": 4145,
+  "gAfExampleSingleMin": 1651,
+  "gAfExampleSingleIncome": 44000,
+  "gAfExampleCoupleIncome": 60000,
+  "gSolDebtThr": 26190,
+  "gSolDebtShare": 0.5,
+  "gOtbDeferDate": "2027-06-10",
+  "gSolPrev": {
+   "qst_base": 356,
+   "qst_spouse": 356,
+   "qst_alone": 169,
+   "housing_couple": 888,
+   "housing_single": 731,
+   "housing_child": 155,
+   "northern_adult": 2091,
+   "northern_child": 452,
+   "threshold": 42325,
+   "debt_thr": 25665
+  }
+ }
+}

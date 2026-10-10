@@ -1,0 +1,101 @@
+{
+ "_lisezmoi": "Lot C (ACT, PCPSH, CIPH, POSPH, AISH/ADAP) : faits relevés le 2026-10-10 par WebFetch sur les pages citées.",
+ "sources": {
+  "cCwbClaim": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-45300-canada-workers-benefit-cwb/how-to-claim.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-45300-allocation-canadienne-travailleurs-act/comment-demander.html",
+   "label": {
+    "en": "CRA, Line 45300, Canada workers benefit: how to claim (modified 2026-06-12)",
+    "fr": "ARC, Ligne 45300, Allocation canadienne pour les travailleurs : comment demander (modifiée le 2026-06-12)"
+   },
+   "date_modified": "2026-06-12"
+  },
+  "cAcwbLine": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-41500-canada-workers-benefit-cwb-advance-payments.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-41500-versements-anticipes-allocation-canadienne-pour-travailleurs-act.html",
+   "label": {
+    "en": "CRA, Line 41500, Advanced Canada workers benefit (modified 2026-01-20)",
+    "fr": "ARC, Ligne 41500, Versements anticipés de l’allocation canadienne pour les travailleurs (modifiée le 2026-01-20)"
+   },
+   "date_modified": "2026-01-20"
+  },
+  "cDtcClaim": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/segments/tax-credits-deductions-persons-disabilities/disability-tax-credit/claiming-dtc.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/segments/deductions-credits-impot-personnes-handicapees/credit-impot-personnes-handicapees/reclamer-ciph.html",
+   "label": {
+    "en": "CRA, Claiming the disability amount (modified 2026-01-20)",
+    "fr": "ARC, Demander le montant pour personnes handicapées (modifiée le 2026-01-20)"
+   },
+   "date_modified": "2026-01-20"
+  },
+  "cTaxRates2026": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/taux-imposition-tranches-revenu/annee-en-cours.html",
+   "label": {
+    "en": "CRA, Tax rates and income brackets for the current year, 2026 (modified 2026-06-25)",
+    "fr": "ARC, Taux d’imposition et tranches de revenu pour l’année en cours, 2026 (modifiée le 2026-06-25)"
+   },
+   "date_modified": "2026-06-25"
+  },
+  "cIta248": {
+   "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-248.html",
+   "url_fr": "https://laws-lois.justice.gc.ca/fra/lois/I-3.3/",
+   "label": {
+    "en": "Income Tax Act, subsection 248(1): appropriate percentage (current to 2026-09-21)",
+    "fr": "Loi de l’impôt sur le revenu, paragraphe 248(1) : taux de base (à jour au 2026-09-21)"
+   },
+   "date_modified": "2026-09-21"
+  },
+  "cOdspIncome": {
+   "url": "https://www.ontario.ca/page/income-support-odsp",
+   "url_fr": "https://www.ontario.ca/fr/page/soutien-du-revenu-du-posph",
+   "label": {
+    "en": "Government of Ontario, ODSP income support (updated 2026-06-30)",
+    "fr": "Gouvernement de l’Ontario, Soutien du revenu du POSPH (mise à jour le 2026-06-30)"
+   },
+   "date_modified": "2026-06-30"
+  },
+  "cCwbElig": {
+   "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-45300-canada-workers-benefit-cwb/who-is-eligible.html",
+   "url_fr": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-45300-allocation-canadienne-travailleurs-act/qui-a-droit.html",
+   "label": {
+    "en": "CRA, Line 45300, Canada workers benefit: who is eligible (modified 2026-04-08)",
+    "fr": "ARC, Ligne 45300, Allocation canadienne pour les travailleurs : qui a droit (modifiée le 2026-04-08)"
+   },
+   "date_modified": "2026-04-08"
+  }
+ },
+ "x": {
+  "cDtcRate": 0.14,
+  "cAcwbFileBefore": "2026-11-01",
+  "cOdspIncrease": 0.019,
+  "cOdspWorkBenefit": 100,
+  "cAishPartner": 1708,
+  "cAishPartnerShare": 0.88,
+  "cAishExempt": 350,
+  "cAdapExemptParent": 1100,
+  "cPartnerExempt": 1500,
+  "cAbChild": [
+   300,
+   117,
+   88,
+   59,
+   30
+  ],
+  "cAbChildFrom": "2026-08",
+  "cAdapPhaseNear": 45000,
+  "cAishRateFrom": "2026-01-01",
+  "cAdapRateFrom": "2026-07-02",
+  "cAdapTransitionEnd": "2027-12-31",
+  "cCwbStudentWeeks": 13,
+  "cCwbPrisonDays": 90,
+  "cCwbMinAge": 19,
+  "cCdbBackMonths": 24,
+  "cDtcBackYears": 10,
+  "cDtc2025": 10138,
+  "cDtcSupp2025": 5914,
+  "cOdspUnlicensedCare": 600,
+  "cAishStayAge": 60,
+  "cOdspCareMonths": 12
+ }
+}

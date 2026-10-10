@@ -170,3 +170,10 @@ describe('Calendrier 2026', () => {
     expect(M.upcoming('2026-10-10')[0].date >= '2026-10-10').toBe(true);
   });
 });
+
+describe('Territoires du Nord-Ouest', () => {
+  it('montants familiaux de l’ARC, pas un multiple du montant pour un enfant', () => {
+    expect(M.provinceChildMax('nt', 2, 2).annualMax).toBeCloseTo(122.25 * 12, 2);
+    expect(M.provinceChildMax('nt', 5, 0).annualMax).toBeCloseTo((163 + 24.41) * 12, 2);
+  });
+});

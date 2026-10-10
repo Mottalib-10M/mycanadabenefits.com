@@ -1,0 +1,111 @@
+{
+  "_lisezmoi": "Lot A (dates, ACEBE, remise carbone, crédit climat C.-B.) : faits relevés le 2026-10-10 par WebFetch sur les pages officielles citées.",
+  "sources": {
+    "aTopup": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gst-hst-credit/one-time-top-up.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-tps-tvh/versement-supplementaire-unique.html",
+      "label": {
+        "en": "CRA, One-time GST/HST credit top-up payment (issued June 5, 2026) (modified 2026-07-08)",
+        "fr": "ARC, Versement supplémentaire unique du crédit pour la TPS/TVH (versé le 5 juin 2026) (modifiée le 2026-07-08)"
+      },
+      "date_modified": "2026-07-08"
+    },
+    "aCgebDates": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-groceries-essentials-benefit/payment-dates.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels/dates-versement.html",
+      "label": {
+        "en": "CRA, Canada Groceries and Essentials Benefit: payment dates (modified 2026-06-08)",
+        "fr": "ARC, Allocation canadienne pour l’épicerie et les besoins essentiels : dates de versement (modifiée le 2026-06-08)"
+      },
+      "date_modified": "2026-06-08"
+    },
+    "aCarbonLate": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-carbon-rebate/how-get-payments.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/remise-canadienne-carbone/comment-obtenir-versements.html",
+      "label": {
+        "en": "CRA, Canada Carbon Rebate: how to get your payments if you have not filed (modified 2026-07-03)",
+        "fr": "ARC, Remise canadienne sur le carbone : comment obtenir vos versements si vous n’avez pas produit (modifiée le 2026-07-03)"
+      },
+      "date_modified": "2026-07-03"
+    },
+    "aCgebWho": {
+      "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-groceries-essentials-benefit/who-eligible.html",
+      "url_fr": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels/qui-admissible.html",
+      "label": {
+        "en": "CRA, Canada Groceries and Essentials Benefit: who is eligible (modified 2026-03-02)",
+        "fr": "ARC, Allocation canadienne pour l’épicerie et les besoins essentiels : qui est admissible (modifiée le 2026-03-02)"
+      },
+      "date_modified": "2026-03-02"
+    }
+  },
+  "x": {
+    "aTopupShare": 0.5,
+    "aTopupTaxYear": 2024,
+    "aTopupMaxSingle": [
+      267,
+      441,
+      533,
+      625,
+      717
+    ],
+    "aTopupMaxCouple": [
+      349,
+      441,
+      533,
+      625,
+      717
+    ],
+    "aCgebQuarterMin": 50,
+    "aCarbonLateYears": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "aBcRetroLastYear": 2023,
+    "aBcSsSpouseAllowance": 99.83,
+    "aBcSsSpouseAge": [
+      60,
+      65
+    ],
+    "aBcSsDates": [
+      "2026-01-27",
+      "2026-02-27",
+      "2026-03-27",
+      "2026-04-27",
+      "2026-05-27",
+      "2026-06-29",
+      "2026-07-27",
+      "2026-08-27",
+      "2026-09-28",
+      "2026-10-27",
+      "2026-11-27",
+      "2026-12-22"
+    ],
+    "aOasApplyAfter64Months": 1,
+    "aOasNoDecrease": true,
+    "aCgebMinAge": 19,
+    "aCarbonNewcomerForms": [
+      "RC66",
+      "RC66SCH",
+      "RC151"
+    ]
+  },
+  "_citations": {
+    "aTopupShare": "In most cases, the amount equaled 50% of your annual GST/HST credit for the period from July 2025 to June 2026. (aTopup)",
+    "aTopupTaxYear": "filed a 2024 tax return and were entitled to the GST/HST credit in January 2026 (aTopup)",
+    "aTopupMaxSingle": "Single individuals or single parent families: $267 with no children, $441 with 1 child, $533 with 2 children, $625 with 3 children, $717 with 4 children or more (aTopup)",
+    "aTopupMaxCouple": "Married or common-law individuals: $349 with no children, $441 with 1 child, $533 with 2 children, $625 with 3 children, $717 with 4 children or more (aTopup)",
+    "aCgebQuarterMin": "You will not receive quarterly payments if the amount per quarter is less than $50. Instead, you will receive the entire amount as a single payment in July. (aCgebDates)",
+    "aCarbonLateYears": "If you were eligible but you have not yet filed your tax return for 2024, 2023, 2022, or 2021, you are still able to receive your payments once your tax returns are assessed. (aCarbonLate)",
+    "aBcRetroLastYear": "If you have not filed your T1 Income Tax and Benefit Returns for 2023 and prior years, you may be eligible for the B.C. climate action tax credit for those years. (bcClimate, last updated 2026-01-12)",
+    "aBcSsSpouseAllowance": "$1.00 to $99.83 (spouse receiving the federal Allowance) (bcSeniors, last updated 2026-09-18)",
+    "aBcSsSpouseAge": "You may also be eligible if you're 60 to 65 and receive federal spouse's allowance. (bcSeniors)",
+    "aBcSsDates": "2026 payment dates: January 27, February 27, March 27, April 27, May 27, June 29, July 27, August 27, September 28, October 27, November 27, December 22, 2026 (bcSeniors)",
+    "aOasApplyAfter64Months": "You can apply online if you're at least 1 month past your 64th birthday. (oasApply, modified 2026-09-09)",
+    "aOasNoDecrease": "Old Age Security payment amounts are reviewed each year in January, April, July and October ... monthly payment rates will not decrease if the cost of living goes down (oasPayments, modified 2026-09-29)",
+    "aCgebMinAge": "You are at least 19 years old, or you are under 19 years old and you have (or had) a spouse or common-law partner, or you are (or were) a parent and live (or lived) with your child; resident of Canada for tax purposes in the month before the CRA makes a payment and at the start of the month when a payment is made (aCgebWho)",
+    "aCarbonNewcomerForms": "Newcomers must complete specific forms (RC66, RC66SCH, or RC151); in order to receive the CCR for an applicable tax year, you must file an income tax and benefit return for that applicable tax year even if you had no income to report (aCarbonLate)",
+    "carbon_former_name": "The Canada Carbon Rebate (formerly known as the Climate action incentive payment (CAIP)) was a tax-free amount to help eligible individuals and families offset the cost of the federal pollution pricing. It consisted of a basic amount and a supplement for residents of small and rural communities. (carbon, params-2026.json, modified 2025-07-30)"
+  }
+}
