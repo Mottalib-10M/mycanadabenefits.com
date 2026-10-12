@@ -385,7 +385,7 @@ export function DatesCalc({ lang = 'en' }: Props) {
       <SelectField id="dt-k" label={tr(lang, 'Benefit', 'Prestation')} value={keys} onChange={setKeys} options={[{ value: 'all', label: tr(lang, 'All benefits', 'Toutes les prestations') }, ...M.PAY_KEYS.map((k) => ({ value: k, label: payLabel(k, lang) }))]} />
       <p className="text-sm text-navy-700">{tr(lang, 'Dates published by the CRA and Service Canada for 2026. 2027 dates are not out yet.', 'Dates publiées par l’ARC et Service Canada pour 2026. Celles de 2027 ne sont pas encore publiées.')}</p>
     </>} result={<>
-      <Head label={tr(lang, 'Next payment', 'Prochain versement')} value={list[0] ? jourMois(list[0].date, lang) : '—'} sub={list[0] ? payLabel(list[0].key, lang) : tr(lang, 'No 2026 date left', 'Plus de date en 2026')} />
+      <Head label={tr(lang, 'Next payment', 'Prochain versement')} value={list[0] ? jourMois(list[0].date, lang) : '–'} sub={list[0] ? payLabel(list[0].key, lang) : tr(lang, 'No 2026 date left', 'Plus de date en 2026')} />
       <Rows rows={list.slice(1, 8).map((x) => [payLabel(x.key, lang), jourMois(x.date, lang)] as [string, string])} />
     </>} />
   );

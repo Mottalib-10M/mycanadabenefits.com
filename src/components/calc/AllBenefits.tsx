@@ -112,7 +112,7 @@ export default function AllBenefits({ lang = 'en', methodHref }: { lang?: L; met
     </>} result={<>
       <Head label={tr(lang, 'What your household receives, per month', 'Ce que votre ménage reçoit, par mois')} value={$(total / 12)} sub={`${$(total)} ${tr(lang, 'a year', 'par an')}`} />
       <table className="mt-4 w-full text-sm"><tbody className="divide-y divide-navy-200">
-        {lines.map((l) => <tr key={l.label}><td className="py-1.5 pr-3 text-navy-700">{l.label}{l.capped ? ' *' : ''}</td><td className="tabular-nums py-1.5 text-right text-navy-900">{l.capped && l.annual === 0 ? '—' : l.capped ? `${l.floor ? '≥' : '≤'} ${$(l.annual / 12)}` : $(l.annual / 12)}</td></tr>)}
+        {lines.map((l) => <tr key={l.label}><td className="py-1.5 pr-3 text-navy-700">{l.label}{l.capped ? ' *' : ''}</td><td className="tabular-nums py-1.5 text-right text-navy-900">{l.capped && l.annual === 0 ? '–' : l.capped ? `${l.floor ? '≥' : '≤'} ${$(l.annual / 12)}` : $(l.annual / 12)}</td></tr>)}
       </tbody></table>
       <Note>{tr(lang, 'Monthly average of each annual amount. * Not added to the total: the province publishes no reduction rate, or the rate is not federal. Full OAS assumed (40 years in Canada). ', 'Moyenne mensuelle de chaque montant annuel. * Non additionné : la province ne publie pas son taux de réduction, ou le barème n’est pas fédéral. SV complète supposée (40 ans au Canada). ')}{disclaimer(lang)}</Note>
       <MethodLink href={methodHref} lang={lang} />

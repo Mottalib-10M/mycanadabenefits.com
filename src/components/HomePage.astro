@@ -34,12 +34,12 @@ const COLS: Array<[M.PayKey, string, string]> = [['cpp_oas', 'CPP · OAS', 'RPC 
 const day = (iso: string | null) => (iso ? String(Number(iso.slice(8, 10))) : '–');
 ---
 <PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={faqs} sources={sources}>
-  <header class="mb-6">
-    <h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{x.h1}</h1>
-    <p class="mt-3 text-lg text-navy-700">{x.intro}</p>
-    <p class="mt-3 text-sm text-navy-600">{fr ? 'Montants vérifiés le' : 'Amounts checked on'} <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, LANG_TAGS[lang])}</time> · {fr ? 'par' : 'by'} <a href={route('about', lang)} class="underline">{AUTHOR_NAME}</a> · <a href={route('method', lang)} class="underline">{fr ? 'Méthode de calcul' : 'Calculation method'}</a></p>
+  <header class="mb-4">
+    <h1 class="text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{x.h1}</h1>
+    <p class="mt-2 text-base text-navy-700 sm:text-lg">{x.intro}</p>
   </header>
   <div data-outil><AllBenefits client:load lang={lang} methodHref={route('method', lang)} /></div>
+  <p class="mt-4 text-sm text-navy-600">{fr ? 'Montants vérifiés le' : 'Amounts checked on'} <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, LANG_TAGS[lang])}</time> · {fr ? 'par' : 'by'} <a href={route('about', lang)} class="underline">{AUTHOR_NAME}</a> · <a href={route('method', lang)} class="underline">{fr ? 'Méthode de calcul' : 'Calculation method'}</a></p>
   <Clamp text={resume} lang={lang} id="clamp-home" sentences={2} class="mt-8" />
   <section class="mt-10" id="calendar">
     <h2 class="text-2xl font-bold text-navy-900">{x.calendarTitle}</h2>
@@ -81,6 +81,6 @@ const day = (iso: string | null) => (iso ? String(Number(iso.slice(8, 10))) : '�
     </div>
   </section>
   <div class="prose prose-slate mt-10 max-w-none">
-    {parts.map((p, i) => i % 2 === 0 ? <Fragment set:html={p} /> : <MiniSim client:load kind={p} lang={lang} href={route('ccb-calculator', lang)} />)}
+    {parts.map((p, i) => i % 2 === 0 ? <Fragment set:html={p} /> : <MiniSim client:load secondary kind={p} lang={lang} href={route('ccb-calculator', lang)} />)}
   </div>
 </PageLayout>

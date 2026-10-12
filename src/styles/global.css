@@ -55,6 +55,8 @@ h1 { font-weight: 700; } h2 { font-weight: 650; } h3 { font-weight: 600; }
   .clamp-toggle { position: absolute; width: 1px; height: 1px; opacity: 0; }
   .clamp-toggle:checked ~ p .clamp-rest { display: inline; }
   .clamp-toggle:checked ~ .clamp-more { display: none; }
-  .clamp-more { display: inline-block; cursor: pointer; margin-top: 0.25rem; font-size: 0.875rem; font-weight: 600; color: #810e16; text-decoration: underline; text-underline-offset: 3px; }
+  /* Le lien suit la dernière ligne visible au lieu de prendre sa propre ligne (premier écran, 2026-10-11). */
+  .clamp > p { display: inline; }
+  .clamp-more { display: inline-block; cursor: pointer; margin-left: 0.25rem; font-size: 0.875rem; font-weight: 600; color: #810e16; text-decoration: underline; text-underline-offset: 3px; }
   .clamp-toggle:focus-visible ~ .clamp-more { outline: 2px solid #810e16; outline-offset: 3px; }
 }

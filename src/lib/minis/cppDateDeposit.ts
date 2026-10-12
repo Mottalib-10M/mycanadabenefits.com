@@ -13,7 +13,7 @@ export default (l: L) => ({
   run: ({ m, c, o }: Record<string, number>) => {
     const d = payDateIn('cpp_oas', m || 1);
     const oasAmt = o === 1 ? (m >= 10 ? P.oas.quarters['2026-10'][0] : m >= 7 ? P.oas.quarters['2026-07'][0] : m >= 4 ? P.oas.quarters['2026-04'][0] : P.oas.quarters['2026-01'][0]) : 0;
-    return { head: [T(l, 'Deposit date', 'Date du dépôt'), d ? jourMois(d, l) : '—'] as [string, string],
+    return { head: [T(l, 'Deposit date', 'Date du dépôt'), d ? jourMois(d, l) : '–'] as [string, string],
       rows: [[T(l, 'CPP', 'RPC'), eur(c, l, 2)], [T(l, 'OAS (full, 65 to 74)', 'SV (complète, 65 à 74 ans)'), eur(oasAmt, l, 2)], [T(l, 'Total that day, before tax', 'Total ce jour-là, avant impôt'), eur(c + oasAmt, l, 2)]] as [string, string][],
       note: T(l, 'OAS amount of the quarter that month belongs to.', 'Montant de la SV du trimestre auquel appartient le mois.') };
   },
