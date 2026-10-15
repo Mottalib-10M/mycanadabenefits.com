@@ -17,6 +17,7 @@ import { helpers } from '../lib/helpers';
 import { P } from '../lib/engine/params';
 import { articleSchema, faqSchema, breadcrumbSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
 import { AUTHOR_NAME } from '../data/site-config';
+import { getSpec } from '../lib/mini-specs';
 import type { PageDef } from '../lib/guide-types';
 interface Props { page: PageDef; lang: Locale }
 const { page, lang } = Astro.props;
@@ -37,8 +38,15 @@ const methodHref = route('method', lang);
 const OUTIL: Record<string, string> = { dates: 'benefit-payment-dates', family: 'ccb-calculator', credits: 'cgeb-calculator', cpp: 'cpp-calculator', oas: 'oas-calculator', disability: 'canada-disability-benefit', provinces: 'ontario-trillium-benefit' };
 const cible = page.miniHref ?? OUTIL[page.group];
 const miniHref = ROUTES.some((r) => r.id === cible) ? route(cible, lang) : undefined;
+// Date en haut seulement sur une page de lecture : un outil, ou un mini-simulateur dont le premier
+// champ vient moins de 250 mots après le titre (chapeau déplié compris), en fait une page de
+// simulateur, sans date au-dessus (RECETTE §8.4, même mesure que check-trame).
+const mots = (x: string) => x.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+const spec = page.mini ? getSpec(page.mini, lang) : null;
+const motsAvantOutil = mots(`${x.intro} ${resume ?? ''} ${ui.readMore} ${spec?.title ?? ''} ${spec?.inputs[0]?.label ?? ''}`);
+const dateEnHaut = !page.tool && (!page.mini || motsAvantOutil >= 250);
 ---
-<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={faqs} related={related} sources={sources} breadcrumbs={[{ label: x.nav }]}>
+<PageLayout dateEnHaut={dateEnHaut} title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={faqs} related={related} sources={sources} breadcrumbs={[{ label: x.nav }]}>
   <article>
     <header class="mb-3">
       <h1 class="text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{x.h1}</h1>
