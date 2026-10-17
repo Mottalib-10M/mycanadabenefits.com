@@ -1,7 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
-import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
 const lang = 'fr';
 ---
@@ -20,7 +20,10 @@ const lang = 'fr';
     <h2>Propriété intellectuelle</h2>
     <p>Les textes, la présentation et le code appartiennent à l’éditeur ; les courtes citations sont bienvenues avec un lien vers la page. L’information du gouvernement du Canada est reproduite selon les conditions fédérales de reproduction non commerciale, et les documents officiels sont liés plutôt que recopiés.</p>
     <h2>Intégration</h2><p>Le calculateur des prestations du ménage peut être intégré gratuitement dans un iframe, en gardant visible son lien de crédit : voir la <a href={route('widget', lang)}>page d’intégration</a>.</p>
-    <h2>Renseignements personnels</h2><p>Les saisies ne quittent jamais votre navigateur ; aucun témoin n’est écrit. Voir la <a href={route('privacy', lang)}>politique de confidentialité</a> et la <a href={route('cookies', lang)}>page des témoins</a>.</p>
+    {/* gen-legal-pages:terms */}
+    <h2>Données personnelles et témoins</h2>
+    {GA4_ID ? (<p>Les saisies des calculateurs ne quittent pas votre navigateur. Le site dépose des témoins de mesure d’audience Google Analytics (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, 13 mois au plus), sans publicité{CLARITY_ID && ' ; la stabilité des pages est mesurée avec Microsoft Clarity, sans cookie'}. Détails, base juridique et moyens de vous y opposer : <a href={route('privacy', lang)}>politique de confidentialité</a> et page <a href={route('cookies', lang)}>témoins</a>.</p>) : (<p>Les saisies des calculateurs ne quittent pas votre navigateur et le site ne dépose aucun témoin{CLARITY_ID && ' ; la stabilité des pages est mesurée de façon anonyme avec Microsoft Clarity, sans cookie'}. Voir la <a href={route('privacy', lang)}>politique de confidentialité</a> et la page <a href={route('cookies', lang)}>témoins</a>.</p>)}
+    {/* /gen-legal-pages:terms */}
     <h2>Signalement</h2><p>Contenu illicite ou trompeur : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, avec l’adresse de la page et le motif.</p>
     <h2>Droit applicable</h2><p>Ces conditions relèvent du droit français, lieu d’établissement de l’éditeur, sans préjudice des protections impératives du consommateur de votre province. Mise à jour : {LAST_UPDATED}.</p>
   </div>
